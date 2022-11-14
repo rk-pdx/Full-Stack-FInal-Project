@@ -1,4 +1,4 @@
-# Full-Stack-FInal-Project
+# Full-Stack-Final-Project
 
 Final project for Full-Stack Web Development.
 
