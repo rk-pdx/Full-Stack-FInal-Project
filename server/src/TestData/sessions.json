@@ -1,0 +1,20 @@
+[
+    {
+       "id":1,
+       "title":"TestAdd",
+       "description":"TestAdd Cillum anim irure ullamco est enim in est amet in sit non. Enim culpa ullamco cillum excepteur. Labore deserunt magna enim proident. Do et consequat ea cupidatat commodo. Proident non consequat aute do irure nulla.\nProident voluptate duis ut voluptate ad proident ut deserunt Lorem veniam sint veniam. Ullamco velit sint elit dolor sunt exercitation. Duis eiusmod dolor aliquip sit cillum enim excepteur ullamco. Fugiat eiusmod sunt est sunt tempor amet fugiat qui nulla. Pariatur labore anim irure sint aliquip. Eu nostrud ea reprehenderit veniam nulla ipsum. Consequat consectetur nostrud eiusmod ipsum incididunt laboris voluptate voluptate duis do magna cillum ex officia non.",
+       "startsAt":"5:20",
+       "endsAt":"8:15",
+       "speakers":[
+          {
+             "id":"a79c25d1-632c-4ae9-aff9-9375a97c0eaf",
+             "name":"Hello World"
+          }
+       ],
+       "room":"Linos",
+       "day":"Friday",
+       "format":"Session",
+       "track":"CS",
+       "level":"Intro"
+    }
+ ]
