@@ -58,3 +58,34 @@ a:link {
 a:hover {
   background-color: rgb(53, 55, 55);
 }
+
+/* User styling css */
+.user {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 200px;
+  margin: auto;
+  gap: 10px 0px;
+}
+
+button {
+  padding: 0px;
+  border: 2px;
+  border-radius: 5px;
+}
+
+.user-link {
+  display: block;
+  background-color: rgb(102, 99, 99);
+}
+
+/* className='user-form */
+.user-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 200px;
+  margin: auto;
+  gap: 10px 0px;
+}

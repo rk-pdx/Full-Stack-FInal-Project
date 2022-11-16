@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Dashboard from './Dashboard.jsx';
 import Navbar from './components/Navbar';
+import { Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <Dashboard />
     </div>
