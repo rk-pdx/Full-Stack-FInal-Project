@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [firstName, setFirstName] = useState('');
@@ -10,45 +11,48 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = { firstName, lastName, email };
-    fetch('http://localhost:5001/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json ;charset=UTF-8',
-        Authorization: 'this-can-be-anything',
-      },
-      body: JSON.stringify(user),
-    }).then((data) => {
-      console.log(data);
-    });
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:5001/submit',
+      data: { user },
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     navigate('/');
   };
 
   return (
-    <div className='user-form'>
+    <div className="user-form">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit} className=''>
-        <label htmlFor='fname'>First name:</label>
+      <form onSubmit={handleSubmit} className="">
+        <label htmlFor="fname">First name:</label>
         <input
-          type='text'
-          name='fname'
+          type="text"
+          name="fname"
           required
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <label htmlFor='Lname'>Last name:</label>
+        <label htmlFor="Lname">Last name:</label>
         <input
-          type='text'
-          name='lname'
+          type="text"
+          name="lname"
           required
           onChange={(e) => setLastName(e.target.value)}
         />
-        <label htmlFor='email'>Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
-          type='email'
-          name='email'
+          type="email"
+          name="email"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button>Login</button>
+        <button className="submit-button">Login</button>
       </form>
     </div>
   );
