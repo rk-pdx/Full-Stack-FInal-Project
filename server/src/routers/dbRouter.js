@@ -3,9 +3,6 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const testData = require('../TestData/sessions.json');
 
-const uri =
-  'mongodb+srv://FullStack22:Fall22FullStack@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
-
 const dbRouter = express.Router();
 
 dbRouter.route('/').get((req, res) => {
