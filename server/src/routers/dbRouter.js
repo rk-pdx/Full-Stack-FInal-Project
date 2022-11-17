@@ -3,6 +3,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const testData = require('../TestData/sessions.json');
 
+const uri = '';
 const dbRouter = express.Router();
 
 dbRouter.route('/').get((req, res) => {
