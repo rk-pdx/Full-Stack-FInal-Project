@@ -19,8 +19,14 @@ app.get('/api', (req, res) => {
   res.json({ posts: ['one', 'two', 'three'] });
 });
 
-app.post('/submit', (req, res) => {
-  console.log('this is from the server');
+app.post('/login', (req, res) => {
+  console.log('this is from the server login');
+  console.log(req.body);
+  res.send(req.body);
+});
+
+app.post('/signup', (req, res) => {
+  console.log('this is from the server signup');
   console.log(req.body);
   res.send(req.body);
 });

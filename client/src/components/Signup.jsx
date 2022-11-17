@@ -14,7 +14,7 @@ const Signup = () => {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5001/submit',
+      url: 'http://localhost:5001/signup',
       data: { user },
     })
       .then((result) => {

@@ -4,11 +4,7 @@ import Navbar from './components/Navbar';
 import { Route, Routes, Link } from 'react-router-dom';
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+  return <Navbar />;
 }
 
 export default App;

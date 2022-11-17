@@ -14,7 +14,7 @@ const Login = () => {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5001/submit',
+      url: 'http://localhost:5001/login',
       data: { user },
     })
       .then((result) => {
