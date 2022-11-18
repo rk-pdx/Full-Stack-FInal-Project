@@ -4,8 +4,8 @@ import Contact from './Contact';
 import About from './About';
 import Login from './Login';
 import Signup from './Signup';
-import Dashboard from '../Dashboard';
-import App from '../App';
+import Dashboard from './Dashboard/Dashboard.jsx'
+
 
 const Navbar = () => {
   return (
