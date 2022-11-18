@@ -31,6 +31,12 @@ app.post('/signup', (req, res) => {
   res.send(req.body);
 });
 
+app.post('/createPost', (req, res) => {
+  console.log(req.body);
+  // insert into database here
+  res.end();
+})
+
 app.listen(5001, () => {
   console.log(`Server running at http://localhost:5001`);
 });

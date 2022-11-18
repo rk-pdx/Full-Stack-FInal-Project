@@ -6,11 +6,22 @@ function CreatePostModal({open, onClose}) {
 
     if (!open) return null;
 
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
   
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        alert(`Submitting Name ${name}`)
+
+        
+        const dataToSend = { title, body };
+
+        fetch('http://localhost:5001/createPost', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataToSend)
+        }).then(() => {
+            console.log('new post added')
+        })
     }
 
     return (
@@ -23,11 +34,20 @@ function CreatePostModal({open, onClose}) {
 
                         <form onSubmit={handleSubmit}>
                             <label>
-                                First Name:
+                                Title:
                                 <input
                                     type="text"
-                                    value={name}
+                                    value={title}
                                     onChange={e => setTitle(e.target.value)}
+                                />
+                            </label>
+
+                            <label>
+                                Body:
+                                <input
+                                    type="text"
+                                    value={body}
+                                    onChange={e => setBody(e.target.value)}
                                 />
                             </label>
                             <input type="submit" value="Submit" />
