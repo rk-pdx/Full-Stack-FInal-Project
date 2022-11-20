@@ -2,57 +2,51 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+const Login = ({ setUser, setLogged, logged }) => {
+  const [userName, setUserName] = useState('s');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { firstName, lastName, email };
 
     axios({
       method: 'post',
       url: 'http://localhost:5001/login',
-      data: { user },
+      data: { userName },
     })
       .then((result) => {
-        console.log(result);
+        console.log(result.data);
+        if (result.data) {
+          console.log(`User found. User name: ${result.data.firstName}`);
+          setUser({
+            ...result.data,
+          });
+          if (!logged) {
+            setLogged((current) => !current);
+          }
+          localStorage.setItem('user', JSON.stringify(result.data));
+          localStorage.setItem('isLoggedIn', true);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
 
-    navigate('/');
+    navigate('/account');
   };
 
   return (
-    <div className="user-form">
+    <div className='user-form'>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit} className="">
-        <label htmlFor="fname">First name:</label>
+      <form onSubmit={handleSubmit} className=''>
+        <label htmlFor='uname'>User name:</label>
         <input
-          type="text"
-          name="fname"
+          type='text'
+          name='uname'
           required
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         />
-        <label htmlFor="Lname">Last name:</label>
-        <input
-          type="text"
-          name="lname"
-          required
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button className="submit-button">Login</button>
+        <button className='submit-button'>Login</button>
       </form>
     </div>
   );

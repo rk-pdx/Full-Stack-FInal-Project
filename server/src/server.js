@@ -3,19 +3,19 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dbRouter = require('../src/routers/dbRouter');
 const { connectToDb, getDb } = require('../src/routers/db');
-
+const { ObjectID } = require('mongodb');
 const app = express();
 // uncomment to use this connection to the db
 // you can use db anywhere in the file
-// let db;
-// connectToDb((err) => {
-//   if (!err) {
-//     app.listen(5001, () => {
-//       console.log(`Server running at http://localhost:5001`);
-//     });
-//     db = getDb();
-//   }
-// });
+let db;
+connectToDb((err) => {
+  if (!err) {
+    app.listen(5001, () => {
+      console.log(`Server running at http://localhost:5001`);
+    });
+    db = getDb();
+  }
+});
 
 app.use(cors());
 app.use('/db', dbRouter);
@@ -33,21 +33,28 @@ app.get('/api', (req, res) => {
 
 app.post('/login', (req, res) => {
   console.log('this is from the server login');
-  console.log(req.body);
+
+  db.collection('Author').findOne({ _id: req.body.userName }, (err, result) => {
+    if (err) {
+      console.log('Author not found err: ', err);
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+});
+
+app.post('/signup', (req, res) => {
+  console.log('this is from the server sign up');
+
   db.collection('Author')
-    .insertOne(req.body)
+    .insertOne(req.body.Author)
     .then((result) => {
-      console.log(result);
+      res.status(200).json(result);
     })
     .catch((err) => {
       console.log(err);
     });
-  res.send(req.body);
-});
-
-app.post('/signup', (req, res) => {
-  console.log('this is from the server signup');
-  console.log(req.body);
   res.send(req.body);
 });
 
@@ -57,6 +64,6 @@ app.post('/createPost', (req, res) => {
   res.end();
 });
 
-app.listen(5001, () => {
-  console.log(`Server running at http://localhost:5001`);
-});
+// app.listen(5001, () => {
+//   console.log(`Server running at http://localhost:5001`);
+// });

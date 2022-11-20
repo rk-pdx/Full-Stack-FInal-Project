@@ -8,7 +8,7 @@ module.exports = {
       'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority'
     )
       .then((client) => {
-        dbConnection = client.db();
+        dbConnection = client.db('FallFullStack22');
         console.log('db connected');
         return callback();
       })
