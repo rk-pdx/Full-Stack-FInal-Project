@@ -1,8 +1,50 @@
-.modalBtn {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    padding: 12px 24px;
+.dashboardContainer {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #000000;
 }
+
+.postCategory {
+    
+}
+
+/* body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #f0f4fb;
+} */
+
+.postContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    gap: 2rem;
+}
+
+.postContent {
+    background: rgb(40, 40, 40);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.post:hover {
+    box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0.2);
+    cursor: pointer;
+}
+
+.postContent {
+    padding: 2rem;
+}
+
+.postContent .postCategory {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: rgb(199, 78, 30);
+    display: block;
+    text-decoration: none;
+} 

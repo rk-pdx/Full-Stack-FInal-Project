@@ -12,7 +12,6 @@ function CreatePostModal({open, onClose}) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        
         const dataToSend = { title, body };
 
         fetch('http://localhost:5001/createPost', {
@@ -59,19 +58,5 @@ function CreatePostModal({open, onClose}) {
     )
 }
 
-
-{/* <Background>
-<ModalWrapper showModal={props.showModal}>
-    <ModalContent>
-        <h1> Are you ready?</h1>
-        <form>
-
-        </form>
-        <button>Join now</button>
-    </ModalContent>
-    <CloseModalButton aria-label='Close modal' onClick={() => props.setShowModal
-    (prev => !prev)} />
-</ModalWrapper>
-</Background> */}
 
 export default CreatePostModal
