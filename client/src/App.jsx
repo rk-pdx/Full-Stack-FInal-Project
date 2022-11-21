@@ -1,8 +1,14 @@
 import Navbar from './components/Navbar';
-import { Route, Routes, Link } from 'react-router-dom';
-
+import Footer from './components/Footer';
+import './footer.css';
+import './navbar.css';
 function App() {
-  return <Navbar />;
+  return (
+    <>
+      <Navbar />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

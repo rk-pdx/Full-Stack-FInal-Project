@@ -22,22 +22,25 @@ const Signup = () => {
         console.log(result);
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error: ', err);
+        navigate('/signup');
       });
 
     navigate('/login');
   };
 
   return (
-    <div className='user-form'>
+    <div className='user-container'>
       <h1>Sign up</h1>
-      <form onSubmit={handleSubmit} className=''>
+      <form onSubmit={handleSubmit} className='login-form'>
         <label htmlFor='fname'>First name:</label>
         <input
           type='text'
           name='fname'
           required
           onChange={(e) => setFirstName(e.target.value)}
+          className='signup-input'
+          placeholder='First name'
         />
         <label htmlFor='Lname'>Last name:</label>
         <input
@@ -45,6 +48,8 @@ const Signup = () => {
           name='lname'
           required
           onChange={(e) => setLastName(e.target.value)}
+          className='signup-input'
+          placeholder='Last name'
         />
         <label htmlFor='uname'>User name:</label>
         <input
@@ -52,6 +57,8 @@ const Signup = () => {
           name='uname'
           required
           onChange={(e) => setUserName(e.target.value)}
+          className='signup-input'
+          placeholder='User name'
         />
         <label htmlFor='email'>Email:</label>
         <input
@@ -59,8 +66,10 @@ const Signup = () => {
           name='email'
           required
           onChange={(e) => setEmail(e.target.value)}
+          className='signup-input'
+          placeholder='Email'
         />
-        <button className='submit-button'>Login</button>
+        <button className='signup-button'>Login</button>
       </form>
     </div>
   );

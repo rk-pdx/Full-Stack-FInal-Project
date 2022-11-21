@@ -36,17 +36,19 @@ const Login = ({ setUser, setLogged, logged }) => {
   };
 
   return (
-    <div className='user-form'>
+    <div className='user-container'>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit} className=''>
+      <form onSubmit={handleSubmit} className='login-form'>
         <label htmlFor='uname'>User name:</label>
         <input
           type='text'
           name='uname'
           required
           onChange={(e) => setUserName(e.target.value)}
+          className='login-input'
+          placeholder='User name'
         />
-        <button className='submit-button'>Login</button>
+        <button className='login-button'>Login</button>
       </form>
     </div>
   );

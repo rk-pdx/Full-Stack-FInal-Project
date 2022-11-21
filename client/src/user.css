@@ -1,0 +1,76 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 200px;
+  margin: auto;
+  gap: 10px 0px;
+}
+
+.user-link {
+  text-align: center;
+  background-color: rgb(149, 211, 240);
+}
+
+a.ex2 {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+a.ex2:visited {
+  color: white;
+}
+
+a.ex2:link {
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+}
+a.ex2:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgb(32, 166, 228);
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 30vw;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(33, 38, 135, 0.37);
+  backdrop-filter: blur(8.5px);
+  border-radius: 10px;
+  color: #ffffff;
+  text-transform: uppercase;
+  background-color: rgb(149, 211, 240);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-input,
+.signup-input {
+  padding: 10px;
+  border: rgb(170, 168, 168) 0.5px solid;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.login-button,
+.signup-button {
+  padding: 10px;
+  border: rgb(170, 168, 168) 0.5px solid;
+  border-radius: 50px;
+  background-color: #ffffff;
+  font-weight: 700;
+}
+
+button.login-button:hover,
+button.signup-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

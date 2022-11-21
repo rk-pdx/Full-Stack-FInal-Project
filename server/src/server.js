@@ -54,8 +54,9 @@ app.post('/signup', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+      res.status(400).json(err);
     });
-  res.send(req.body);
+  //res.send(req.body);
 });
 
 app.post('/createPost', (req, res) => {

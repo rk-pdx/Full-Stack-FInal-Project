@@ -1,21 +1,15 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../user.css';
 
 const User = () => {
-  const [formType, setFormType] = useState(true);
-
   return (
     <div className='user'>
-      <button>
-        <Link to='/login' className='user-link'>
-          Login
-        </Link>
-      </button>
-      <button>
-        <Link to='/signup' className='user-link'>
-          Sign up
-        </Link>
-      </button>
+      <Link to='/login' className='user-link ex2'>
+        Login
+      </Link>
+      <Link to='/signup' className='user-link ex2'>
+        Sign up
+      </Link>
     </div>
   );
 };

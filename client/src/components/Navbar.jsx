@@ -40,20 +40,30 @@ const Navbar = () => {
       <nav className='nav'>
         <ul className='nav-links'>
           <li className='home-link'>
-            <Link to='/'>Home</Link>
+            <Link to='/' className='ex1'>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to='/about'>About</Link>
+            <Link to='/about' className='ex1'>
+              About
+            </Link>
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <Link to='/contact' className='ex1'>
+              Contact
+            </Link>
           </li>
           <li>
             {!logged ? (
-              <Link to='/user'>User</Link>
+              <Link to='/user' className='ex1'>
+                User
+              </Link>
             ) : (
               <>
-                <Link to='/account'>{user._id}</Link>
+                <Link to='/account' className='ex1'>
+                  {user._id}
+                </Link>
               </>
             )}
           </li>
@@ -61,6 +71,7 @@ const Navbar = () => {
             <></>
           ) : (
             <button
+              className='nav-button'
               onClick={() => {
                 if (logged) {
                   setLogged((current) => !current);
