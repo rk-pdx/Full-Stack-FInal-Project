@@ -3,7 +3,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dbRouter = require('../src/routers/dbRouter');
 const { connectToDb, getDb } = require('../src/routers/db');
-const { connectDb, findOneUser, insertUser } = require('../src/routers/userdb');
+const {
+  connectDb,
+  findOneUser,
+  insertUser,
+  findAll,
+} = require('../src/routers/userdb');
 const app = express();
 // uncomment to use this connection to the db
 // you can use db anywhere in the file
