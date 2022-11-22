@@ -17,47 +17,7 @@ function Dashboard() {
             </div>
 
             <div className='postContainer'>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
-                
+                <Post category='travel' date='November 22, 2022' title='Portland, Oregon is the most beautiful city in the world.' author='Author_name' numReplies='4'/>
             </div>
             
         </div>

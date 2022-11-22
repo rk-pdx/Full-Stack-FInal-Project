@@ -3,52 +3,113 @@
     src: url('../../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
 }
 
-@font-face {
-    font-family: 'apple-bold';
-    src: url('../../fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
-}
-
-.dashboardContainer {
-    font-size: 100%;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 50px;
-    background-color: #000000;
+body {
+    font-family: 'apple';
+    color: #232323;
 }
 
 .postContainer {
+    background-color: #000000;
+    height: 100vh;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 40px;
 }
 
-.post {
+.card {
+    background-color: rgb(0, 0, 0);
+    max-width: 400px;
     border-radius: 10px;
-    background-color: rgb(45, 45, 45);
-    overflow: hidden;
-    padding-top: 10px;
-    padding-left: 10px;
+    grid-template-column: repeat(5, 1fr);
+  }
+
+.card-content {
+    grid-column: 3 / 5;
+    padding: 10px 30px;
 }
 
-.postHeader {
+.card-category {
+    display: inline-block;
+    padding-top: 20px;
+    padding-right: 10px;
     text-transform: uppercase;
-    font-size: 15px;
+    color: rgb(218, 32, 100);
     font-family: 'apple';
+    font-weight: 600;
+    font-size: .6875rem;
 }
 
-.postHeader .postCategory {
-    
-    color: rgb(233, 112, 75);
-    margin-right: 10px;
-}
-
-.postHeader .postDate {
-    color: rgb(172, 172, 172);
-}
-
-.postBody {
+.card-date {
+    display: inline-block;
+    text-transform: uppercase;
+    color: gray;
     font-family: 'apple';
-    color: white;
+    font-weight: 600;
+    font-size: .6875rem;
+}
+
+.card-title {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid #cdcdcd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-stats {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 2rem;
+    margin-top: 2px;
+    font-family: 'apple';
+    font-weight: 600;
+    font-size: .6875rem;
+    text-transform: uppercase;
+    color: gray;
+    margin-top: 10px;
+}
+
+.authorBtn {
+    color: gray;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.authorBtn:hover {
+    color: white;
+}
+
+.repliesBtn {
+    color: gray;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.repliesBtn:hover {
+    color: white;
+}
+
+.saveBtn {
+    color: gray;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.saveBtn:hover {
+    color: white;
 }
