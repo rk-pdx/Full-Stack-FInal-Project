@@ -3,19 +3,19 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dbRouter = require('../src/routers/dbRouter');
 const { connectToDb, getDb } = require('../src/routers/db');
-const { ObjectID } = require('mongodb');
+const { connectDb, findOneUser, insertUser } = require('../src/routers/userdb');
 const app = express();
 // uncomment to use this connection to the db
 // you can use db anywhere in the file
-let db;
-connectToDb((err) => {
-  if (!err) {
-    app.listen(5001, () => {
-      console.log(`Server running at http://localhost:5001`);
-    });
-    db = getDb();
-  }
-});
+// let db;
+// connectToDb((err) => {
+//   if (!err) {
+//     app.listen(5001, () => {
+//       console.log(`Server running at http://localhost:5001`);
+//     });
+//     db = getDb();
+//   }
+// });
 
 app.use(cors());
 app.use('/db', dbRouter);
@@ -31,32 +31,28 @@ app.get('/api', (req, res) => {
   res.json({ posts: ['one', 'two', 'three'] });
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
   console.log('this is from the server login');
-
-  db.collection('Author').findOne({ _id: req.body.userName }, (err, result) => {
-    if (err) {
-      console.log('Author not found err: ', err);
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
+  const results = await findOneUser(req.body.userName).catch(console.error());
+  if (results) {
+    console.log('results: ', results);
+    res.status(200).json(results);
+  } else {
+    res.status(400).json(results);
+  }
 });
 
-app.post('/signup', (req, res) => {
+app.post('/signup', async (req, res) => {
   console.log('this is from the server sign up');
-
-  db.collection('Author')
-    .insertOne(req.body.Author)
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-  //res.send(req.body);
+  const results = await insertUser(req.body.Author);
+  if (results) {
+    console.log('results: ', results);
+    res.status(200).json(results);
+  } else {
+    console.log(results);
+    res.status(400).json(results);
+  }
+  res.end();
 });
 
 app.post('/createPost', (req, res) => {
@@ -65,6 +61,6 @@ app.post('/createPost', (req, res) => {
   res.end();
 });
 
-// app.listen(5001, () => {
-//   console.log(`Server running at http://localhost:5001`);
-// });
+app.listen(5001, () => {
+  console.log(`Server running at http://localhost:5001`);
+});

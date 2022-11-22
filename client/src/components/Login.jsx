@@ -26,13 +26,15 @@ const Login = ({ setUser, setLogged, logged }) => {
           }
           localStorage.setItem('user', JSON.stringify(result.data));
           localStorage.setItem('isLoggedIn', true);
+          navigate('/account');
+        } else {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error: ', err);
+        console.log(`username: ${userName} not fount`);
+        navigate('/');
       });
-
-    navigate('/account');
   };
 
   return (
