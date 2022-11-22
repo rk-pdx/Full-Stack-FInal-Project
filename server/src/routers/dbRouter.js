@@ -2,6 +2,7 @@ const express = require('express');
 //const debug = require('debug')('app:dbRouter');
 const { MongoClient } = require('mongodb');
 const testData = require('../TestData/sessions.json');
+const { getDb } = require('./db');
 
 const uri = '';
 const dbRouter = express.Router();

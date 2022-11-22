@@ -12,7 +12,9 @@ function CreatePostModal({open, onClose}) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        const dataToSend = { title, body };
+        let date = `${new Date().getDate()}-${new Date().getMonth()}-${new Date().getFullYear()}`;
+
+        const dataToSend = {title, body, date};
 
         fetch('http://localhost:5001/createPost', {
             method: 'POST',

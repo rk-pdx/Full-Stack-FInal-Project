@@ -59,12 +59,32 @@ app.post('/signup', (req, res) => {
   //res.send(req.body);
 });
 
+app.get('/GetAllPost', (req, res) => {
+  let posts = db.collection('Post').find({});
+
+  console.log(posts);
+});
+
 app.post('/createPost', (req, res) => {
+  console.log(
+    'Request Body Below================================================='
+  );
   console.log(req.body);
+
   // insert into database here
+  db.collection('Post').insertOne(req.body, function (err, result) {
+    if (err) {
+      console.log('Post Insert Error');
+      res.status(400).send('Post Failed');
+    } else {
+      console.log('Post Successful');
+      res.status(204).send();
+    }
+  });
+
   res.end();
 });
 
-// app.listen(5001, () => {
-//   console.log(`Server running at http://localhost:5001`);
-// });
+//app.listen(5001, () => {
+//  console.log(`Server running at http://localhost:5001`);
+//});

@@ -10,7 +10,7 @@ function Dashboard() {
 
     return (
         <div className='dashboardContainer'>
-
+    
             <div className='toolbar'>
                 <button className='modalBtn' onClick={() => setOpenModal(true)}>Create Post</button>
                 <CreatePostModal open={openModal} onClose={() => setOpenModal(false)}/>    
