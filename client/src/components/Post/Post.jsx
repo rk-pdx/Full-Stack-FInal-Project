@@ -1,24 +1,17 @@
 import React, { useState } from 'react';
 
 
-function Post({title, author, category, postBody, numReplies}) {
+function Post({category, date, title, author, numReplies}) {
 
     return (
         <div className='post'>
-            <div className='postContent'>
+            <div className='postHeader'>
+                <span className='postCategory'>{category}</span>
+                <span className='postDate'>{date}</span>
+            </div>
 
-                <div className='postCategory'>
-                    <h5>{category}</h5>
-                </div>
-
-                <div className='postTitle'>
-                    <h1>{title}</h1>
-                </div>
-                
-                <div className='postBody'>
-                    <p className='postBody'>{postBody}</p>
-                </div>
-
+            <div className='postBody'>     
+                <span className='postTitle'>{title}</span>
             </div>
         </div>
     )

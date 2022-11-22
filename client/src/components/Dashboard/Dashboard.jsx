@@ -5,8 +5,7 @@ import './Dashboard.css';
 
 
 function Dashboard() {
-
-    const [backendData, setBackendData] = useState([{}]);
+    
     const [openModal, setOpenModal] = useState(false);
 
     return (
@@ -18,45 +17,46 @@ function Dashboard() {
             </div>
 
             <div className='postContainer'>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
-                <Post title='myTitle' author='myAuthor' category='travel' postBody='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-' numReplies='myNumReplies'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
+                <Post category='travel' date='today' title='Celebrating the world of digital art and animation at Lightbox Expo 2022.' author='author' numReplies='4'/>
                 
             </div>
             
@@ -67,8 +67,7 @@ function Dashboard() {
 
 export default Dashboard;
 
-
-
+    //const [backendData, setBackendData] = useState([{}]);
     // <div>
     //     {(typeof backendData.posts === 'undefined') ? (
     //         <p>Loading...</p>
