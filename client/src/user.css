@@ -9,7 +9,7 @@
 
 .user-link {
   text-align: center;
-  background-color: rgb(149, 211, 240);
+  background-color: var(--primary);
 }
 
 a.ex2 {
@@ -44,7 +44,7 @@ a.ex2:hover {
   border-radius: 10px;
   color: #ffffff;
   text-transform: uppercase;
-  background-color: rgb(149, 211, 240);
+  background-color: var(--primary);
 }
 
 .login-form {
@@ -73,4 +73,6 @@ a.ex2:hover {
 button.login-button:hover,
 button.signup-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: var(--secondary);
+  color: var(--white);
 }
