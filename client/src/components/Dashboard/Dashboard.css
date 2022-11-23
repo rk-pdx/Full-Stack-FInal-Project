@@ -8,12 +8,27 @@ body {
     color: #232323;
 }
 
+.featuredPosts {
+    background-color: rgb(196, 15, 15);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.feature {
+    border-radius: 30px;
+    background-color: rgb(0, 0, 0);
+    width: 600px;
+    height: 400px;
+    margin: 20px;
+}
+
 .postContainer {
     background-color: #000000;
+    overflow-y: scroll;
     height: 100vh;
     display: grid;
-    justify-content: center;
-    align-items: center;
+    /* grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr); */
     padding: 30px;
     gap: 40px;
 }
@@ -21,12 +36,11 @@ body {
 .card {
     background-color: rgb(0, 0, 0);
     max-width: 400px;
+    max-height: 300px;
     border-radius: 10px;
-    grid-template-column: repeat(5, 1fr);
   }
 
 .card-content {
-    grid-column: 3 / 5;
     padding: 10px 30px;
 }
 
@@ -112,4 +126,73 @@ body {
 
 .saveBtn:hover {
     color: white;
+}
+
+/* -------------------------------------*/
+
+.post {
+    background-color: rgb(0, 0, 0);
+    font-family: 'apple';
+    max-width: none;
+    max-height: 200px;
+    overflow: hidden;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
+
+.postContent {
+    padding: 10px 30px;
+}
+
+.postCategory {
+    display: inline-block;
+    padding-top: 20px;
+    padding-right: 10px;
+    text-transform: uppercase;
+    color: rgb(241, 80, 21);
+    font-family: 'apple';
+    font-weight: 600;
+    font-size: .6875rem;
+}
+
+.postDate {
+    display: inline-block;
+    text-transform: uppercase;
+    color: gray;
+    font-family: 'apple';
+    font-weight: 600;
+    font-size: .6875rem;
+}
+
+.postTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.postBody {
+    margin-top: 2px;
+    color: gray;
+}
+
+.postBodyContent {
+    color: gray;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 16px;
+}
+
+.postStats {
+    display: grid;
+    grid-auto-flow: column;
+    margin-top: 10px;
+    font-family: 'apple';
+    font-weight: 600;
+    font-size: .6875rem;
+    text-transform: uppercase;
+    color: gray;
+ 
 }
