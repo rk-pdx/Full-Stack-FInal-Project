@@ -27,7 +27,7 @@ function CreatePostModal({open, onClose}) {
         <div className='overlay'>
             <div className='modalContainer'>
                 <div className='modalRight'>
-                    <button className='closeBtn' onClick={onClose }> X </button>
+                    <button className='closeBtn' onClick={onClose}> X </button>
                     <div className='content'>
                         <h1>content</h1>
 

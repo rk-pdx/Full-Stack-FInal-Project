@@ -1,41 +1,25 @@
-import React, { useState } from 'react';
-import replyIcon from '../../images/reply-icon.png';
+import React from 'react';
 
 
-function Post({category, date, title, author, numReplies}) {
-
+function Post({category, date, title, author, numReplies, body}) {
     return (
-        
-        <div className="card">
-            <div className="card-content">
-                <span className='card-category'>{category}</span>
-                <span className='card-date'>{date}</span>
-                <div className='card-title'>{title}</div>
-                <div className='card-stats'>
+        <div className="post">
+            <div className="postContent">
+                <span className='postCategory'>{category}</span>
+                <span className='postDate'>{date}</span>
+                <div className='postTitle'>{title}</div>
+                <div className='postBody'>
+                    <p className='postBodyContent'>{body}</p>
+                </div>
+                <div className='postStats'>
                    <button className='authorBtn'>{author}</button>
                    <button className='repliesBtn'>{numReplies}</button>
                    <button className='saveBtn'>Save</button>
                 </div>
             </div>
         </div>
-        
     )
 }
 
-
-{/* <div className='post'>
-<div className='postHeader'>
-    <span className='postCategory'>{category}</span>
-    <span className='postDate'>{date}</span>
-</div>
-
-<div className='postBody'>     
-    <span className='postTitle'>{title}</span>
-    <div className='postStats'>
-        <span className='postAuthor'>{author}</span>
-        <span className='numReplies'>{numReplies}</span>
-    </div>
-</div>
-</div> */}
 
 export default Post;
