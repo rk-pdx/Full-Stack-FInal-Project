@@ -2,24 +2,33 @@ import React, {useState} from 'react'
 import './CreatePostModal.css';
 
 
-function CreatePostModal({open, onClose}) {
+function CreatePostModal({open, onClose, user}) {
 
     if (!open) return null;
 
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    const [postTitle, setPostTitle] = useState('');
+    const [postCategory, setPostCategory] = useState('');
+    const [postBody, setPostBody] = useState('');
   
+    const generatePostId = () => {
+        return Math.random().toString().slice(2,11);
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        const dataToSend = { title, body };
+        const postId = generatePostId();
+        const userId = user._id;
+        const repliesArray = [];
+        const dataToSend = { postId, postTitle, userId, postCategory, postBody, repliesArray };
 
         fetch('http://localhost:5001/createPost', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataToSend)
         }).then(() => {
-            console.log('new post added')
+            console.log('Post data submitted to the backend:\n');
+            console.log(dataToSend);
         })
     }
 
@@ -36,8 +45,17 @@ function CreatePostModal({open, onClose}) {
                                 Title:
                                 <input
                                     type="text"
-                                    value={title}
-                                    onChange={e => setTitle(e.target.value)}
+                                    value={postTitle}
+                                    onChange={e => setPostTitle(e.target.value)}
+                                />
+                            </label>
+
+                            <label>
+                                Category (optional):
+                                <input
+                                    type="text"
+                                    value={postCategory}
+                                    onChange={e => setPostCategory(e.target.value)}
                                 />
                             </label>
 
@@ -45,8 +63,8 @@ function CreatePostModal({open, onClose}) {
                                 Body:
                                 <input
                                     type="text"
-                                    value={body}
-                                    onChange={e => setBody(e.target.value)}
+                                    value={postBody}
+                                    onChange={e => setPostBody(e.target.value)}
                                 />
                             </label>
                             <input type="submit" value="Submit" />
