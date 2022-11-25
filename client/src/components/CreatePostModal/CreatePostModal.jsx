@@ -18,9 +18,17 @@ function CreatePostModal({open, onClose, user}) {
         evt.preventDefault();
 
         const postId = generatePostId();
+
+        let postDate = new Date();
+        const dd = String(postDate.getDate()).padStart(2, '0');
+        const mm = String(postDate.getMonth() + 1).padStart(2, '0');
+        const yyyy = postDate.getFullYear();
+
+        postDate = mm + '/' + dd + '/' + yyyy;
+        
         const userId = user._id;
         const repliesArray = [];
-        const dataToSend = { postId, postTitle, userId, postCategory, postBody, repliesArray };
+        const dataToSend = { postId, postDate, postTitle, userId, postCategory, postBody, repliesArray };
 
         fetch('http://localhost:5001/createPost', {
             method: 'POST',

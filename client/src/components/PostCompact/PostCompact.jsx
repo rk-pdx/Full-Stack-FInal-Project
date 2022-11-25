@@ -1,15 +1,25 @@
 import React, {useState} from 'react';
-import PostFull from '../PostFull/PostFull';
+import PostModal from '../PostModal/PostModal';
 
 
-function PostCompact ( { postId, postTitle, userId, postCategory, postBody, repliesArray } ) {
+function PostCompact ( { postId, postDate, postTitle, userId, postCategory, postBody, repliesArray } ) {
     const [postAuthor, setPostAuthor] = useState('');
+    const [showPostModal, setShowPostModal] = useState(false);
     const GET_AUTHOR_NAME_ENDPOINT = '/getAuthorName';
+    let postData;
 
     // TODO: Make a Fetch() API call to the backend, passing in the userId, to receive the username.
     //       ENDPOINT: localhost:5001/GET_AUTHOR_NAME_ENDPOINT
     const populatePostAuthor = () => {
         setPostAuthor('username');
+    }
+
+    const repliesBtn_HandleClick = () => {
+        setShowPostModal(true);
+    }
+
+    const closePostModal = () => {
+        setShowPostModal(false);
     }
 
 
@@ -24,7 +34,7 @@ function PostCompact ( { postId, postTitle, userId, postCategory, postBody, repl
                 <div className="post">
                     <div className="postContent">
                         <span className='postCategory'>{postCategory}</span>
-                        {/* <span className='postDate'>{date}</span> */}
+                        <span className='postDate'>{postDate}</span>
                         <div className='postTitle'>{postTitle}</div>
                         <div className='postBody'>
                             <p className='postBodyContent'>{postBody}</p>
@@ -33,9 +43,22 @@ function PostCompact ( { postId, postTitle, userId, postCategory, postBody, repl
                             <button className='authorBtn'>{postAuthor}</button>
 
                             {(repliesArray.length !== 0) ? (
-                                <button className='repliesBtn'>
-                                    {repliesArray.length} replies
-                                </button>
+                                <div>
+                                    <button className='repliesBtn' onClick={repliesBtn_HandleClick}>
+                                        {repliesArray.length} replies
+                                    </button>
+                                    <PostModal 
+                                        showPostModal={showPostModal}
+                                        closePostModal={closePostModal}
+                                        postId={postId}
+                                        postDate={postDate}
+                                        postTitle={postTitle}
+                                        userId={userId}
+                                        postCategory={postCategory}
+                                        postBody={postBody}
+                                        repliesArray={repliesArray}
+                                    />
+                                </div>
                              ) : (0)}
                            
                             <button className='saveBtn'>Save</button>
