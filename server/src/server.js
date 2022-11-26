@@ -60,6 +60,7 @@ app.post('/signup', async (req, res) => {
   res.end();
 });
 
+// TODO: Insert the request body into the database
 app.post('/createPost', (req, res) => {
   console.log(req.body);
   // insert into database here

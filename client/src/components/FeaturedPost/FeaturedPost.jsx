@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DisplayPostModal from '../DisplayPostModal/DisplayPostModal';
 import replyIcon from '../../images/reply-icon.png';
 
 
