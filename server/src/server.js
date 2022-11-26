@@ -66,12 +66,7 @@ app.get('/GetAllPost', (req, res) => {
 });
 
 app.post('/createPost', (req, res) => {
-  console.log(
-    'Request Body Below================================================='
-  );
-  console.log(req.body);
-
-  // insert into database here
+  // use db connection to insert new post to Post table
   db.collection('Post').insertOne(req.body, function (err, result) {
     if (err) {
       console.log('Post Insert Error');
