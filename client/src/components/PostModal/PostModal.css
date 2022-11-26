@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'apple';
+    src: url('../../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+}
+
+.postModal, .postModalOverlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.postModalOverlay {
+    background-color: rgba(49, 49, 49, 0.8);
+}
+
+.postModalContent {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}

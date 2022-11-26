@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ReplyWindow from '../ReplyWindow/ReplyWindow';
 import Comment from '../Comment/Comment';
+import '../PostModal/PostModal.css';
 
 
 function PostModal ( { showPostModal, closePostModal, postId, postDate, postTitle, userId, 
@@ -10,7 +11,7 @@ function PostModal ( { showPostModal, closePostModal, postId, postDate, postTitl
 
     const [postReplies, setPostReplies] = useState([]);
     const [showReplyWindow, setShowReplyWindow] = useState(false);
-    const GET_REPLY_CONTENT_ENDPOINT = '/getReplyContent';
+    
     
     // TODO: Make a Fetch() API call to the backend, passing in each of the reply_id in repliesArray
     //       to receive the relevant reply content.
@@ -36,40 +37,57 @@ function PostModal ( { showPostModal, closePostModal, postId, postDate, postTitl
         );
     }
 
+
     const createReplyBtn_HandleClick = () => {
         setShowReplyWindow(true);
     }
 
+
     return (
-        <div className='overlay'>
-            <div className='modalContainer'>
-                <div className='modalRight'>
-                    <button className='closeBtn' onClick={closePostModal}> X </button>
-                    <div className='content'>
-                        <h1>{postTitle}</h1>
-                        <p>
-                            {postBody}
-                        </p>
-                        <div className='postStats'>
-                            {postDate}
-                        </div>
-                        <div className='repliesSection'>
-                            <button className='createReplyBtn' onClick={createReplyBtn_HandleClick}>Reply</button>
-                            <ReplyWindow showReplyWindow={showReplyWindow} closeBtn_HandleClick={() => {setShowReplyWindow(false)}}/>
-
-                            <div className='commentContainer'>
-                                {/* for all replies:
-                                        create a <Comment /> and append it to the correct div
-                                */}
-                            </div>
-
-                        </div>
+        <div className='postModal'>
+            <div className='postModalOverlay' onClick={closePostModal}>
+                <div className='postModalContent'>
+                    <div>
+                        <span>{postCategory}</span>
+                        <span>{postDate}</span>
+                        
+                        <h2>{postTitle}</h2>
                     </div>
+                    
+                    <p>{postBody}</p>
                 </div>
             </div>
         </div>
     )
 }
+
+
+{/* <div className='modalRight'>
+
+<button className='closeBtn' onClick={closePostModal}> X </button>
+
+<div className='content'>
+    <div className='postHeader'>
+        <div className='postStats'>
+            <span>{postCategory}</span>
+            <span>{postDate}</span>
+        </div>
+        <h1>{postTitle}</h1>
+    </div>
+    
+    <p>
+        {postBody}
+    </p>
+ 
+    <div className='repliesSection'>
+        <button className='createReplyBtn' onClick={createReplyBtn_HandleClick}>Reply</button>
+        <ReplyWindow showReplyWindow={showReplyWindow} closeBtn_HandleClick={() => {setShowReplyWindow(false)}}/>
+
+     
+
+    </div>
+</div>
+</div> */}
 
 
 export default PostModal;

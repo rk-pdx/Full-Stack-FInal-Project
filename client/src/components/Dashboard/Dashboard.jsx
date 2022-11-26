@@ -4,26 +4,20 @@ import FeaturedPost from '../FeaturedPost/FeaturedPost';
 import PostCompact from '../PostCompact/PostCompact';
 import Popup from 'reactjs-popup';
 import './Dashboard.css';
-import e from 'cors';
+
 
 function Dashboard({ user, logged }) {
   const [postData, setPostData] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [logIn, setLogIn] = useState(logged);
 
+
   useEffect(() => {
     setLogIn(logged);
   }, [logged]);
 
+
   const ModalBtn_HandleClick = () => {
-    // if (user.id === undefined) {
-    //     console.log("HIT");
-    //     console.log('Redirect to login page');
-    // }
-    // else {
-    //     setOpenModal(true);
-    // }
-    // Allows posting if a user is logged in.
     if (logIn) {
       setOpenModal(true);
     } else {
@@ -31,8 +25,31 @@ function Dashboard({ user, logged }) {
     }
   };
 
+
+  //  TODO: Create route-handler for the endpoint /getPosts and return all posts in the format:
+  //  [
+  //       {    
+  //         postId: '...',
+  //         postDate: '...',
+  //         postTitle: '...',
+  //         userId: '...',
+  //         postCategory: '...',
+  //         postBody: '...',
+  //         repliesArray: [...],
+  //       }
+  //  ]
+
+
   const populatePostData = () => {
-    // TODO: fetch from the backend here
+    // useEffect(() => {
+    //   fetch('https://localhost:5001/getPosts').then(
+    //     response => response.json()
+    //   ).then(
+    //     data => {
+    //       setPostData(data)
+    //     }
+    //   )
+    // }, []);
 
     const postData = [
       {
@@ -45,10 +62,31 @@ function Dashboard({ user, logged }) {
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
         repliesArray: [1],
       },
+      {
+        postId: '182231321',
+        postDate: '11/24/2022',
+        postTitle: 'Another post title.',
+        userId: 'rk24',
+        postCategory: 'Programming',
+        postBody:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+        repliesArray: [1],
+      },
+      {
+        postId: '182231321',
+        postDate: '11/24/2022',
+        postTitle: 'Another post title.',
+        userId: 'rk24',
+        postCategory: 'Programming',
+        postBody:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+        repliesArray: [1],
+      },
     ];
 
     setPostData(postData);
   };
+
 
   return (
     <div className='dashboardContainer'>
@@ -70,14 +108,21 @@ function Dashboard({ user, logged }) {
             {populatePostData()}
           </div>
         ) : (
-          <PostCompact {...postData[0]} />
+          postData.map((post) => (
+            <PostCompact {...post} />
+          ))
         )}
       </div>
     </div>
   );
 }
 
+
 export default Dashboard;
+
+
+
+// <PostCompact {...postData[0]} />
 
 //const [backendData, setBackendData] = useState([{}]);
 // <div>
@@ -114,19 +159,3 @@ export default Dashboard;
 //             </div>
 
 //         </div>
-
-// const [data, setData] = useState([]);
-
-// const obj = {
-//     id: 1,
-//     title: 'Post Title',
-//     threads: [
-//                 ['A', ['B', ['A']], ['C']], ['D']
-//              ]
-// };
-
-// return (
-//     <div>
-//         <Temp {...obj}/>
-//     </div>
-// )
