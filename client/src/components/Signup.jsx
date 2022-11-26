@@ -11,6 +11,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const Author = { firstName, lastName, _id: userName, email };
 
     axios({
@@ -19,14 +20,12 @@ const Signup = () => {
       data: { Author },
     })
       .then((result) => {
-        console.log(result);
+        navigate('/login');
       })
       .catch((err) => {
         console.log('Error: ', err);
-        navigate('/signup');
+        alert(`${firstName} in use, please pick another username`);
       });
-
-    navigate('/login');
   };
 
   return (
@@ -69,7 +68,9 @@ const Signup = () => {
           className='signup-input'
           placeholder='Email'
         />
-        <button className='signup-button'>Login</button>
+        <button type='submit' className='signup-button'>
+          Login
+        </button>
       </form>
     </div>
   );
