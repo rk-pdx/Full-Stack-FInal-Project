@@ -86,7 +86,11 @@ const Navbar = () => {
         </ul>
       </nav>
       <Routes>
-        <Route path='/' exact element={<Dashboard user={user}/>} />
+        <Route
+          path='/'
+          exact
+          element={<Dashboard user={user} logged={logged} />}
+        />
         <Route path='user' exact element={<User />} />
         <Route path='about' exact element={<About />} />
         <Route path='contact' exact element={<Contact />} />
