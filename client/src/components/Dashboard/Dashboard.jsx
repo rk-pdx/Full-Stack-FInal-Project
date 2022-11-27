@@ -24,7 +24,6 @@ function Dashboard({ user, logged }) {
     };
 
     fetchData().catch(console.error());
-    console.log('posts: ', postData);
   }, []);
 
   const ModalBtn_HandleClick = () => {
@@ -111,9 +110,9 @@ function Dashboard({ user, logged }) {
       <div className='postContainer'>
         {postData === '' ? (
           <div>
-            <p>Loading posts...</p>
+            {/* <p>Loading posts...</p>
 
-            {populatePostData()}
+            {populatePostData()} */}
           </div>
         ) : (
           postData.map((post) => <PostCompact {...post} />)

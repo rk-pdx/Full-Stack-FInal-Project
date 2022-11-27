@@ -32,13 +32,14 @@ function PostCompact({
             ...values,
             ...result.data,
           }));
+          setPostAuthor(result.data._id);
         });
     };
 
     fetchData().catch(console.error());
   }, []);
   //console.log(userId);
-  console.log(postBody);
+
   const populatePostAuthor = () => {
     // useEffect(() => {
     //     fetch(`https://localhost:5001/getAuthorNames`).then(
@@ -62,6 +63,19 @@ function PostCompact({
 
   // TODO: finish this function: redirect the user to the appropriate user profile
   const authorBtn_HandleClick = () => {
+    // const fetchData = async () => {
+    //   await axios
+    //     .get('http://localhost:5001/login', { params: { name: userId } })
+    //     .then((result) => {
+    //       setAuthor((values) => ({
+    //         ...values,
+    //         ...result.data,
+    //       }));
+    //     });
+    // };
+
+    // fetchData().catch(console.error());
+
     setPopup((current) => !current);
   };
 
