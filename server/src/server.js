@@ -36,6 +36,20 @@ app.get('/api', (req, res) => {
   res.json({ posts: ['one', 'two', 'three'] });
 });
 
+app.get('/getPosts', async (req, res) => {
+  console.log('\nThis is from the server getPosts');
+  const results = await findAll('Post').catch(console.log('here'));
+  console.log('result: ', results);
+  if (results) {
+    console.log('results: ', results);
+    res.status(200).json(results);
+  } else {
+    console.log('no results for some');
+    res.status(400).json(results);
+  }
+  res.end();
+});
+
 app.get('/login', async (req, res) => {
   console.log('\nThis is from the server login');
   const results = await findOneUser(req.query.name).catch(console.log());
