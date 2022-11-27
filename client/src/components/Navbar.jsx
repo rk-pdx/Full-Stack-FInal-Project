@@ -33,7 +33,6 @@ const Navbar = () => {
         ...newValues,
       }));
     }
-    console.log('user: ', user);
   }, []);
 
   return (
