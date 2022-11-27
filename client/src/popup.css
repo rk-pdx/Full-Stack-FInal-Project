@@ -1,0 +1,18 @@
+.pop-up {
+  position: fixed;
+  background-color: var(--white);
+  width: 300px;
+  height: 200px;
+
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.button-pop {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2px 5px;
+  border: 0.1px solid black;
+  border-radius: 8px;
+}
