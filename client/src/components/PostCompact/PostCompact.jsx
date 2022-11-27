@@ -14,9 +14,31 @@ function PostCompact({
 }) {
   const [postAuthor, setPostAuthor] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
+  const [author, setAuthor] = useState({
+    email: '',
+    firstName: '',
+    lastName: '',
+    _id: '',
+  });
   // Sets the popup to show or not.
   const [popup, setPopup] = useState(false);
   // TODO: Make a Fetch() API call to the backend, passing in the userId, to receive the username.
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get('http://localhost:5001/login', { params: { name: userId } })
+        .then((result) => {
+          setAuthor((values) => ({
+            ...values,
+            ...result.data,
+          }));
+        });
+    };
+
+    fetchData().catch(console.error());
+  }, []);
+  //console.log(userId);
+  console.log(postBody);
   const populatePostAuthor = () => {
     // useEffect(() => {
     //     fetch(`https://localhost:5001/getAuthorNames`).then(
@@ -27,7 +49,6 @@ function PostCompact({
     //         }
     //     )
     // }, []);
-
     setPostAuthor('Author');
   };
 
@@ -42,23 +63,6 @@ function PostCompact({
   // TODO: finish this function: redirect the user to the appropriate user profile
   const authorBtn_HandleClick = () => {
     setPopup((current) => !current);
-    //redirect the user to the user profile
-    //e.preventDefault();
-    //
-    // await axios
-    //   .get('http://localhost:5001/login', { params: { name: postAuthor } })
-    //   .then((result) => {
-    //     console.log(result.data);
-    //     if (result.data) {
-    //       console.log(`User found. User name: ${result.data.firstName}`);
-    //       alert(JSON.stringify(result.data));
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log('Error: ', err);
-    //     console.log(`username: ${userName} not fount`);
-    //     alert('Username not found. Fix this.');
-    //   });
   };
 
   return (
@@ -82,7 +86,7 @@ function PostCompact({
                 <button className='authorBtn' onClick={authorBtn_HandleClick}>
                   {postAuthor}
                 </button>
-                <Popup open={popup} author={postAuthor} setPopup={setPopup} />
+                <Popup open={popup} author={author} setPopup={setPopup} />
               </div>
               {repliesArray.length !== 0 ? (
                 <div>

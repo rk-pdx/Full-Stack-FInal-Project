@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react';
 import CreatePostModal from '../CreatePostModal/CreatePostModal';
 import FeaturedPost from '../FeaturedPost/FeaturedPost';
 import PostCompact from '../PostCompact/PostCompact';
+import axios from 'axios';
 import Popup from 'reactjs-popup';
 import './Dashboard.css';
-
 
 function Dashboard({ user, logged }) {
   const [postData, setPostData] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [logIn, setLogIn] = useState(logged);
 
-
   useEffect(() => {
     setLogIn(logged);
   }, [logged]);
 
+  // We will fetch all the Posts with this get call to the server.
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios.get('http://localhost:5001/getPosts').then((result) => {
+        setPostData(result.data);
+      });
+    };
+
+    fetchData().catch(console.error());
+    console.log('posts: ', postData);
+  }, []);
 
   const ModalBtn_HandleClick = () => {
     if (logIn) {
@@ -25,10 +35,9 @@ function Dashboard({ user, logged }) {
     }
   };
 
-
   //  TODO: Create route-handler for the endpoint /getPosts and return all posts in the format:
   //  [
-  //       {    
+  //       {
   //         postId: '...',
   //         postDate: '...',
   //         postTitle: '...',
@@ -38,7 +47,6 @@ function Dashboard({ user, logged }) {
   //         repliesArray: [...],
   //       }
   //  ]
-
 
   const populatePostData = () => {
     // useEffect(() => {
@@ -84,9 +92,8 @@ function Dashboard({ user, logged }) {
       },
     ];
 
-    setPostData(postData);
+    //setPostData(postData);
   };
-
 
   return (
     <div className='dashboardContainer'>
@@ -105,22 +112,18 @@ function Dashboard({ user, logged }) {
         {postData === '' ? (
           <div>
             <p>Loading posts...</p>
+
             {populatePostData()}
           </div>
         ) : (
-          postData.map((post) => (
-            <PostCompact {...post} />
-          ))
+          postData.map((post) => <PostCompact {...post} />)
         )}
       </div>
     </div>
   );
 }
 
-
 export default Dashboard;
-
-
 
 // <PostCompact {...postData[0]} />
 
@@ -155,7 +158,7 @@ export default Dashboard;
 //             </div>
 
 //             <div className='postContainer'>
-//                 <Post category='travel' date='November 22, 2022' title='Portland, Oregon is the most beautiful city in the world.' author='Author_name' numReplies='4' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'/>
+// <Post category='travel' date='November 22, 2022' title='Portland, Oregon is the most beautiful city in the world.' author='Author_name' numReplies='4' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'/>
 //             </div>
 
 //         </div>
