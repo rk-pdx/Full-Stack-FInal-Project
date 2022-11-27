@@ -11,6 +11,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const Author = { firstName, lastName, _id: userName, email };
 
     axios({
@@ -19,14 +20,12 @@ const Signup = () => {
       data: { Author },
     })
       .then((result) => {
-        console.log(result);
+        navigate('/login');
       })
       .catch((err) => {
         console.log('Error: ', err);
-        navigate('/signup');
+        alert(`${firstName} in use, please pick another username`);
       });
-
-    navigate('/login');
   };
 
   return (
@@ -38,7 +37,7 @@ const Signup = () => {
           type='text'
           name='fname'
           required
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value.replaceAll(' ', ''))}
           className='signup-input'
           placeholder='First name'
         />
@@ -47,7 +46,7 @@ const Signup = () => {
           type='text'
           name='lname'
           required
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value.replaceAll(' ', ''))}
           className='signup-input'
           placeholder='Last name'
         />
@@ -56,7 +55,7 @@ const Signup = () => {
           type='text'
           name='uname'
           required
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => setUserName(e.target.value.replaceAll(' ', ''))}
           className='signup-input'
           placeholder='User name'
         />
@@ -65,11 +64,13 @@ const Signup = () => {
           type='email'
           name='email'
           required
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.replaceAll(' ', ''))}
           className='signup-input'
           placeholder='Email'
         />
-        <button className='signup-button'>Login</button>
+        <button type='submit' className='signup-button'>
+          Login
+        </button>
       </form>
     </div>
   );

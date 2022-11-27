@@ -2,7 +2,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './footer.css';
 import './navbar.css';
+
+
 function App() {
+
   return (
     <>
       <Navbar />
@@ -10,5 +13,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

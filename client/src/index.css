@@ -15,4 +15,8 @@ body {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  --primary: rgb(29, 108, 145);
+  --secondary: rgb(32, 166, 228);
+  --white: rgb(255, 255, 255);
+  --background: rgb(0, 0, 0);
 }

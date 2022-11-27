@@ -2,26 +2,40 @@ import React, {useState} from 'react'
 import './CreatePostModal.css';
 
 
-function CreatePostModal({open, onClose}) {
+function CreatePostModal({open, onClose, user}) {
 
     if (!open) return null;
 
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    const [postTitle, setPostTitle] = useState('');
+    const [postCategory, setPostCategory] = useState('');
+    const [postBody, setPostBody] = useState('');
   
+    const generatePostId = () => {
+        return Math.random().toString().slice(2,11);
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        const postId = generatePostId();
 
-        let date = `${new Date().getDate()}-${new Date().getMonth()}-${new Date().getFullYear()}`;
+        let postDate = new Date();
+        const dd = String(postDate.getDate()).padStart(2, '0');
+        const mm = String(postDate.getMonth() + 1).padStart(2, '0');
+        const yyyy = postDate.getFullYear();
 
-        const dataToSend = {title, body, date};
+        postDate = mm + '/' + dd + '/' + yyyy;
+        
+        const userId = user._id;
+        const repliesArray = [];
+        const dataToSend = { postId, postDate, postTitle, userId, postCategory, postBody, repliesArray };
 
         fetch('http://localhost:5001/createPost', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataToSend)
         }).then(() => {
-            console.log('new post added')
+            console.log('Post data submitted to the backend:\n');
+            console.log(dataToSend);
         })
     }
 
@@ -29,7 +43,7 @@ function CreatePostModal({open, onClose}) {
         <div className='overlay'>
             <div className='modalContainer'>
                 <div className='modalRight'>
-                    <button className='closeBtn' onClick={onClose }> X </button>
+                    <button className='closeBtn' onClick={onClose}> X </button>
                     <div className='content'>
                         <h1>content</h1>
 
@@ -38,8 +52,17 @@ function CreatePostModal({open, onClose}) {
                                 Title:
                                 <input
                                     type="text"
-                                    value={title}
-                                    onChange={e => setTitle(e.target.value)}
+                                    value={postTitle}
+                                    onChange={e => setPostTitle(e.target.value)}
+                                />
+                            </label>
+
+                            <label>
+                                Category (optional):
+                                <input
+                                    type="text"
+                                    value={postCategory}
+                                    onChange={e => setPostCategory(e.target.value)}
                                 />
                             </label>
 
@@ -47,8 +70,8 @@ function CreatePostModal({open, onClose}) {
                                 Body:
                                 <input
                                     type="text"
-                                    value={body}
-                                    onChange={e => setBody(e.target.value)}
+                                    value={postBody}
+                                    onChange={e => setPostBody(e.target.value)}
                                 />
                             </label>
                             <input type="submit" value="Submit" />

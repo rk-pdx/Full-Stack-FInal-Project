@@ -3,17 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = ({ setUser, setLogged, logged }) => {
-  const [userName, setUserName] = useState('s');
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios({
-      method: 'post',
-      url: 'http://localhost:5001/login',
-      data: { userName },
-    })
+    await axios
+      .get('http://localhost:5001/login', { params: { name: userName } })
       .then((result) => {
         console.log(result.data);
         if (result.data) {
@@ -26,13 +22,14 @@ const Login = ({ setUser, setLogged, logged }) => {
           }
           localStorage.setItem('user', JSON.stringify(result.data));
           localStorage.setItem('isLoggedIn', true);
+          navigate('/');
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error: ', err);
+        console.log(`username: ${userName} not fount`);
+        alert('Username not found');
       });
-
-    navigate('/account');
   };
 
   return (
