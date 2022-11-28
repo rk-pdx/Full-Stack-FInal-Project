@@ -10,6 +10,7 @@ const {
   findAll,
 } = require('../src/routers/userdb');
 const app = express();
+
 // uncomment to use this connection to the db
 // you can use db anywhere in the file
 // let db;
@@ -36,6 +37,8 @@ app.get('/api', (req, res) => {
   res.json({ posts: ['one', 'two', 'three'] });
 });
 
+// This route will retrieve all the posts in the database.
+// It will relay a success or failure.
 app.get('/getPosts', async (req, res) => {
   console.log('\nThis is from the server getPosts');
   const results = await findAll('Post').catch(console.log('here'));
@@ -50,6 +53,8 @@ app.get('/getPosts', async (req, res) => {
   res.end();
 });
 
+// This route will get a user from the database.
+// It will relay a success or failure.
 app.get('/login', async (req, res) => {
   console.log('\nThis is from the server login');
   const results = await findOneUser(req.query.name).catch(console.log());
@@ -64,6 +69,8 @@ app.get('/login', async (req, res) => {
   res.end();
 });
 
+// This route will insert a user into the database.
+// It will relay a success or failure.
 app.post('/signup', async (req, res) => {
   console.log('\nThis is from the server sign up');
   const results = await insertUser(req.body.Author);

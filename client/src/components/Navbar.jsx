@@ -8,12 +8,15 @@ import Signup from './Signup';
 import Account from './Account';
 import Dashboard from './Dashboard/Dashboard.jsx';
 
+// This will remove a user from local storage.
 const handleLogout = () => {
   localStorage.removeItem('user');
   localStorage.removeItem('isLoggedIn', true);
 };
 
+// This renders the navbar and routing for the application
 const Navbar = () => {
+  // The states used in the navbar
   const [user, setUser] = useState({
     email: '',
     firstName: '',
@@ -23,6 +26,8 @@ const Navbar = () => {
   const [logged, setLogged] = useState(false);
   const navigate = useNavigate();
 
+  // Useeffect allows us to keep a user logged in even if they leave the website
+  // and have not logged out.
   useEffect(() => {
     const loggedInUser = localStorage.getItem('user');
     if (loggedInUser) {
@@ -70,18 +75,20 @@ const Navbar = () => {
           {!logged ? (
             <></>
           ) : (
-            <button
-              className='nav-button'
-              onClick={() => {
-                if (logged) {
-                  setLogged((current) => !current);
-                }
-                handleLogout();
-                navigate('/');
-              }}
-            >
-              Sign out
-            </button>
+            <li>
+              <button
+                className='nav-button'
+                onClick={() => {
+                  if (logged) {
+                    setLogged((current) => !current);
+                  }
+                  handleLogout();
+                  navigate('/');
+                }}
+              >
+                Sign out
+              </button>
+            </li>
           )}
         </ul>
       </nav>

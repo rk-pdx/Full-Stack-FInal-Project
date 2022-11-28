@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useDebugValue, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LoginPopup from './popups/LoginPopup';
 
+// The Login function will render the login section of the application.
+// It handles validating if a entered username is correct or not.
 const Login = ({ setUser, setLogged, logged }) => {
   const [userName, setUserName] = useState('');
   const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
 
-  const HandleClick_Popup = () => {
-    setPopup((current) => !current);
-  };
+  // Function is not.
+  // const HandleClick_Popup = () => {
+  //   setPopup((current) => !current);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,21 +42,23 @@ const Login = ({ setUser, setLogged, logged }) => {
   };
 
   return (
-    <div className='user-container'>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit} className='login-form'>
-        <label htmlFor='uname'>User name:</label>
-        <input
-          type='text'
-          name='uname'
-          required
-          onChange={(e) => setUserName(e.target.value)}
-          className='login-input'
-          placeholder='User name'
-        />
-        <button className='login-button'>Login</button>
-        <LoginPopup open={popup} setPopup={setPopup} />
-      </form>
+    <div className='container-wrap'>
+      <div className='user-container'>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit} className='login-form'>
+          <label htmlFor='uname'>User name:</label>
+          <input
+            type='text'
+            name='uname'
+            required
+            onChange={(e) => setUserName(e.target.value)}
+            className='login-input'
+            placeholder='User name'
+          />
+          <button className='login-button'>Login</button>
+          <LoginPopup open={popup} setPopup={setPopup} />
+        </form>
+      </div>
     </div>
   );
 };
