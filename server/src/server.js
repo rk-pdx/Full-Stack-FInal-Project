@@ -8,6 +8,8 @@ const {
   findOneUser,
   insertUser,
   findAll,
+  insertReply,
+  getAllRepliesByTitle,
 } = require('../src/routers/userdb');
 const app = express();
 
@@ -84,9 +86,27 @@ app.post('/signup', async (req, res) => {
   res.end();
 });
 
+app.post('/processReply', (req, res) => {
+  try {
+    insertReply(req.body);
+  } catch (exc) {
+    console.log(exc);
+  }
+});
+
+app.get('/getAllRepliesByTitle', async (req, res) => {
+  let result = await getAllRepliesByTitle(req.query.pTitle);
+
+  if (result !== []) {
+    res.status(200).json(result);
+  } else {
+    res.status(204);
+  }
+});
+
 // TODO: Insert the request body into the database
 app.post('/createPost', (req, res) => {
-  console.log(req.body);
+  console.log(req);
   // insert into database here
   res.end();
 });
