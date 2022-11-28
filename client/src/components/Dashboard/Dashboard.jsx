@@ -5,11 +5,13 @@ import PostCompact from '../PostCompact/PostCompact';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
 import './Dashboard.css';
+import PostPopup from '../popups/PostPopup';
 
 function Dashboard({ user, logged }) {
   const [postData, setPostData] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [logIn, setLogIn] = useState(logged);
+  const [popup, setPopup] = useState(false);
 
   useEffect(() => {
     setLogIn(logged);
@@ -23,7 +25,7 @@ function Dashboard({ user, logged }) {
       });
     };
 
-    fetchData().catch(console.error());
+    fetchData().catch((err) => console.log('Error: ', err));
   }, []);
 
   const ModalBtn_HandleClick = () => {
@@ -31,6 +33,14 @@ function Dashboard({ user, logged }) {
       setOpenModal(true);
     } else {
       alert('Please log in to post');
+    }
+  };
+
+  const HandleClick_Popup = () => {
+    if (logIn) {
+      setOpenModal(true);
+    } else {
+      setPopup((current) => !current);
     }
   };
 
@@ -97,9 +107,10 @@ function Dashboard({ user, logged }) {
   return (
     <div className='dashboardContainer'>
       <div className='toolbar'>
-        <button className='modalBtn' onClick={ModalBtn_HandleClick}>
+        <button className='modalBtn' onClick={HandleClick_Popup}>
           Create Post
         </button>
+        <PostPopup open={popup} setPopup={setPopup} />
         <CreatePostModal
           open={openModal}
           onClose={() => setOpenModal(false)}
@@ -115,7 +126,7 @@ function Dashboard({ user, logged }) {
             {populatePostData()} */}
           </div>
         ) : (
-          postData.map((post) => <PostCompact {...post} />)
+          postData.map((post, index) => <PostCompact key={index} {...post} />)
         )}
       </div>
     </div>

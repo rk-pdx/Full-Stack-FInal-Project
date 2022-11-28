@@ -2,10 +2,26 @@
   position: absolute;
   overflow-y: visible;
   background-color: var(--white);
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 100px;
   border-radius: 8px;
   z-index: 2;
+  left: 20px;
+  margin-top: 10px;
+}
+
+.pop-up::after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  content: '';
+  transform: rotate(45deg);
+  margin-bottom: -15px;
+  background-color: var(--white);
 }
 
 .button-pop {
@@ -20,6 +36,147 @@
 .pop-upText {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-left: 10px;
+}
+
+/* Post pop up css section  */
+.post-pop-up {
+  position: absolute;
+  overflow-y: visible;
+  background-color: var(--white);
+  width: 200px;
+  height: 100px;
+  margin-top: 15px;
+  left: 20px;
+  border: 1px solid red;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.post-pop-up::after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid red;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid red;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  content: '';
+  transform: rotate(45deg);
+  margin-bottom: -10px;
+  background-color: var(--white);
+}
+
+.post-button-pop {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2px 5px;
+  border: 0.1px solid black;
+  border-radius: 8px;
+}
+
+.post-pop-upText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Login pop up css section  */
+.login-pop-up {
+  position: absolute;
+  overflow-y: visible;
+  background-color: var(--white);
+  width: 191px;
+  height: 100px;
+  top: 200px;
+  border: 1px solid red;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.login-pop-up::after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid red;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid red;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: '';
+  transform: rotate(45deg);
+  margin-bottom: -10px;
+  background-color: var(--white);
+}
+
+.login-button-pop {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2px 5px;
+  color: red;
+  border: 0.1px solid red;
+  border-radius: 8px;
+}
+
+.login-pop-upText {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-top: 35px;
+}
+
+/* Login pop up css section  */
+.signup-pop-up {
+  position: absolute;
+  overflow-y: visible;
+  background-color: var(--white);
+  width: 191px;
+  height: 100px;
+  bottom: 235px;
+  border: 1px solid red;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.signup-pop-up::after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid red;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid red;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: '';
+  transform: rotate(45deg);
+  margin-bottom: -10px;
+  background-color: var(--white);
+}
+
+.signup-button-pop {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 2px 5px;
+  color: red;
+  border: 0.1px solid red;
+  border-radius: 8px;
+}
+
+.signup-pop-upText {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-top: 35px;
 }
