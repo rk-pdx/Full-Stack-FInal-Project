@@ -101,7 +101,7 @@ function Dashboard({ user, logged }) {
       },
     ];
 
-    //setPostData(postData);
+    setPostData(postData);
   };
 
   return (

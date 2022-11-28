@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'apple';
+    src: url('../../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+}
+
+#replyModalContent {
+    width: 300px;
+    height: 200px;
+}
