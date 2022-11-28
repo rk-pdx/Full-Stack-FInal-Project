@@ -1,7 +1,10 @@
 const Footer = () => {
   return (
     <footer className='footer'>
-      <h1 className='footer-text'>This is the footer</h1>
+      <p className='footer-text'>
+        Copyright &copy;2022 Created by Rajat Kulkarni, Cristian Torres Salazar
+        , and Zachary Freiter
+      </p>
     </footer>
   );
 };

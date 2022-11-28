@@ -6,7 +6,6 @@ const PostPopup = ({ open, setPopup }) => {
   return (
     <div className='post-pop-up'>
       <div className='post-pop-upText'>
-        <span>No user logged in</span>
         <span>Please log in to post</span>
       </div>
       <button

@@ -1,3 +1,9 @@
+.container-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--background);
+}
 .user {
   display: flex;
   flex-direction: column;

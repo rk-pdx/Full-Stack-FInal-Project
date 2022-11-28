@@ -44,11 +44,10 @@ a.ex1:hover {
 button.nav-button {
   font-family: Inter;
   padding: 5px;
-  margin: 14px 10px 14px 10px;
   border: none;
   background-color: var(--primary);
   color: #ffffff;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 button.nav-button:hover {

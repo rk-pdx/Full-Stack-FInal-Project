@@ -1,5 +1,10 @@
+import '../contactAbout.css';
 const Contact = () => {
-  return <p>Contact</p>;
+  return (
+    <div className='container-contact'>
+      <p>Contact</p>
+    </div>
+  );
 };
 
 export default Contact;

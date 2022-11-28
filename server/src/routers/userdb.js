@@ -1,5 +1,8 @@
 const { MongoClient } = require('mongodb');
 
+// Connects to the database and uses the first argument for the user to find and
+// the second argument is a function that searches the database.
+// This function was discarded.
 const connectDb = async (userName, findOneUser) => {
   const uri =
     'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
@@ -17,6 +20,8 @@ const connectDb = async (userName, findOneUser) => {
   }
 };
 
+// Connects to the database to find a user and returns there information.
+// Throws an error if nothing is found.
 const findOneUser = async (userName) => {
   const uri =
     'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
@@ -47,6 +52,8 @@ const findOneUser = async (userName) => {
   }
 };
 
+// Connects to the database to find a all values in a collection and returns there information.
+// Throws an error if nothing is found.
 const findAll = async (findCollection) => {
   const uri =
     'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
@@ -77,6 +84,8 @@ const findAll = async (findCollection) => {
   }
 };
 
+// Connects to the database to insert a user and returns there information.
+// Throws an error if the current author/ user is in the database.
 const insertUser = async (author) => {
   const uri =
     'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
