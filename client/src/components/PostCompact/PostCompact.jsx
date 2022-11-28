@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PostModal from '../PostModal/PostModal';
 import Popup from '../popups/Popup';
 import axios from 'axios';
+import ReplyModal from '../ReplyModal/ReplyModal';
+import { UNSAFE_DataRouterStateContext } from 'react-router-dom';
 
 function PostCompact({
   postId,
@@ -20,6 +22,7 @@ function PostCompact({
     lastName: '',
     _id: '',
   });
+  const [hideReplyModal, setReplyModal] = useState(true);
   // Sets the popup to show or not.
   const [popup, setPopup] = useState(false);
   // TODO: Make a Fetch() API call to the backend, passing in the userId, to receive the username.
@@ -53,13 +56,21 @@ function PostCompact({
     setPostAuthor('Author');
   };
 
+  const [hidePostModal, setHidePostModal] = useState(true);
   const repliesBtn_HandleClick = () => {
     setShowPostModal(true);
+    setHidePostModal(false);
+    document.getElementById("pModal").hidden = false;
+
   };
 
   const closePostModal = () => {
     setShowPostModal(false);
   };
+
+  const toggleShowReply = () => {
+    setReplyModal(hideReplyModal === true ? false : true)
+  }
 
   // TODO: finish this function: redirect the user to the appropriate user profile
   const authorBtn_HandleClick = () => {
@@ -111,6 +122,7 @@ function PostCompact({
                     {repliesArray.length} replies
                   </button>
                   <PostModal
+                    hide = {hidePostModal}
                     showPostModal={showPostModal}
                     closePostModal={closePostModal}
                     postId={postId}
@@ -123,7 +135,10 @@ function PostCompact({
                   />
                 </div>
               ) : (
-                0
+                <div>
+                <button className="noRepliesBtn" onClick={toggleShowReply}>Add First Reply</button>
+                <ReplyModal hide = {hideReplyModal} />
+                </div>
               )}
 
               <button className='saveBtn'>Save</button>
