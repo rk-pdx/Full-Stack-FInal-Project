@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import LoginPopup from './popups/LoginPopup';
 
 const Login = ({ setUser, setLogged, logged }) => {
   const [userName, setUserName] = useState('');
+  const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
+
+  const HandleClick_Popup = () => {
+    setPopup((current) => !current);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,8 +33,8 @@ const Login = ({ setUser, setLogged, logged }) => {
       })
       .catch((err) => {
         console.log('Error: ', err);
-        console.log(`username: ${userName} not fount`);
-        alert('Username not found');
+        console.log(`username: ${userName} not found`);
+        setPopup((current) => !current);
       });
   };
 
@@ -46,6 +52,7 @@ const Login = ({ setUser, setLogged, logged }) => {
           placeholder='User name'
         />
         <button className='login-button'>Login</button>
+        <LoginPopup open={popup} setPopup={setPopup} />
       </form>
     </div>
   );

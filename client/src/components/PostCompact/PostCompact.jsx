@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PostModal from '../PostModal/PostModal';
-import Popup from '../Popup';
+import Popup from '../popups/Popup';
 import axios from 'axios';
 
 function PostCompact({
@@ -36,7 +36,7 @@ function PostCompact({
         });
     };
 
-    fetchData().catch(console.error());
+    fetchData().catch((err) => console.log('Error: ', err));
   }, []);
   //console.log(userId);
 

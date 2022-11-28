@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SignupPopup from './popups/SignupPopup';
 import axios from 'axios';
 
 const Signup = () => {
@@ -7,7 +8,12 @@ const Signup = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
+  const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
+
+  const HandleClick_Popup = () => {
+    setPopup((current) => !current);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +30,7 @@ const Signup = () => {
       })
       .catch((err) => {
         console.log('Error: ', err);
-        alert(`${firstName} in use, please pick another username`);
+        setPopup((current) => !current);
       });
   };
 
@@ -71,6 +77,7 @@ const Signup = () => {
         <button type='submit' className='signup-button'>
           Login
         </button>
+        <SignupPopup open={popup} setPopup={setPopup} />
       </form>
     </div>
   );
