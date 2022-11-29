@@ -1,6 +1,7 @@
 .nav {
   height: auto;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  background-color: black;
 }
 
 .nav-links {
