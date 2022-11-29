@@ -114,6 +114,7 @@ function Dashboard({ user, logged }) {
           open={openModal}
           onClose={() => setOpenModal(false)}
           user={user}
+          setPostData={setPostData}
         />
       </div>
 

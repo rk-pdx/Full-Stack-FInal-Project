@@ -15,8 +15,7 @@ function PostModal ( { hide, showPostModal, closePostModal, postId, postDate, po
 
     const getAllRepliesByTitle = async () => {
         let result = await axios.get('http://localhost:5001/getAllRepliesByTitle', {params: {pTitle: postTitle}}).then((res) => {
-            console.log("response");
-            console.log(res.data);
+            
             setPostReplies(res.data);
         });
     }

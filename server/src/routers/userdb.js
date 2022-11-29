@@ -116,6 +116,38 @@ const insertUser = async (author) => {
   }
 };
 
+// Connects to the database to insert a user and returns there information.
+// Throws an error if the current author/ user is in the database.
+const insertPost = async (post) => {
+  const uri =
+    'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    console.log('db connected');
+    const result = await client
+      .db('FallFullStack22')
+      .collection('Post')
+      .insertOne(post);
+
+    if (result) {
+      console.log(`Inserted ${post}`);
+      console.log(result);
+    } else {
+      console.log('no listing found');
+      console.log('no results ', result);
+    }
+    return result;
+  } catch (err) {
+    console.log('Error: ', err);
+  } finally {
+    setTimeout(() => {
+      client.close();
+    }, 1500);
+    console.log('Database closed');
+  }
+};
+
 const GetDateToday = () => {
   let date = new Date();
   return `${date.getDay()} ${date.getMonth()}, ${date.getFullYear()}`;
@@ -182,4 +214,5 @@ module.exports = {
   findAll,
   insertReply,
   getAllRepliesByTitle,
+  insertPost,
 };
