@@ -16,7 +16,8 @@
 
 .user-link {
   text-align: center;
-  background-color: var(--primary);
+  background-color: var(--white);
+  color: var(--background);
 }
 
 a.ex2 {
@@ -25,17 +26,18 @@ a.ex2 {
 }
 
 a.ex2:visited {
-  color: white;
+  color: var(--background);
 }
 
 a.ex2:link {
   font-size: 1em;
-  color: white;
+  color: var(--background);
   text-decoration: none;
 }
 a.ex2:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgb(32, 166, 228);
+  background-color: rgba(155, 115, 197, 0.603);
+  color: var(--white);
 }
 
 .user-container {
@@ -50,9 +52,9 @@ a.ex2:hover {
   box-shadow: 0 8px 32px 0 rgba(33, 38, 135, 0.37);
   backdrop-filter: blur(8.5px);
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--background);
   text-transform: uppercase;
-  background-color: var(--primary);
+  background-color: var(--white);
 }
 
 .login-form,
