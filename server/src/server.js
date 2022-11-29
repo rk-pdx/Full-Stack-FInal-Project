@@ -111,7 +111,7 @@ app.post('/createPost', async (req, res) => {
   // insert into database here
   // res.end();
   //console.log(req.body.dataToSend);
-  console.log('\nThis is from the server sign up');
+  console.log('\nThis is from the server createPost');
   const results = await insertPost(req.body.dataToSend);
   if (results) {
     console.log('results: ', results);
