@@ -10,6 +10,7 @@ const {
   findAll,
   insertReply,
   getAllRepliesByTitle,
+  insertPost,
 } = require('../src/routers/userdb');
 const app = express();
 
@@ -105,9 +106,20 @@ app.get('/getAllRepliesByTitle', async (req, res) => {
 });
 
 // TODO: Insert the request body into the database
-app.post('/createPost', (req, res) => {
-  console.log(req);
+app.post('/createPost', async (req, res) => {
+  //console.log(req);
   // insert into database here
+  // res.end();
+  //console.log(req.body.dataToSend);
+  console.log('\nThis is from the server sign up');
+  const results = await insertPost(req.body.dataToSend);
+  if (results) {
+    console.log('results: ', results);
+    res.sendStatus(200);
+  } else {
+    console.log(results);
+    res.status(400).json(results);
+  }
   res.end();
 });
 
