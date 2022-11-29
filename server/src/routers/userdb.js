@@ -116,4 +116,70 @@ const insertUser = async (author) => {
   }
 };
 
-module.exports = { connectDb, findOneUser, insertUser, findAll };
+const GetDateToday = () => {
+  let date = new Date();
+  return `${date.getDay()} ${date.getMonth()}, ${date.getFullYear()}`;
+};
+
+const insertReply = async (reply) => {
+  const uri =
+    'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
+
+  const dbClient = new MongoClient(uri);
+
+  try {
+    await dbClient.connect();
+
+    let success = await dbClient
+      .db('FallFullStack22')
+      .collection('Replies')
+      .insertOne(reply);
+
+    if (success.acknowledged) {
+      console.log('Reply Insert Successful');
+    } else {
+      console.log(
+        '[ projectroot.server.src.routers.userdb.js ] Reply Insert Failed.'
+      );
+    }
+  } catch (exc) {
+    console.log(
+      '[ projectroot.server.src.routers.userdb.js ] Error: Reply Insert Failed'
+    );
+    console.log(exc);
+
+    // TODO implement logger for exceptions
+  } finally {
+    dbClient.close();
+  }
+};
+
+const getAllRepliesByTitle = async (pTitle) => {
+  const uri =
+    'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
+
+  const dbClient = new MongoClient(uri);
+
+  try {
+    await dbClient.connect();
+    let result = await dbClient
+      .db('FallFullStack22')
+      .collection('Replies')
+      .find({ parentTitle: pTitle })
+      .toArray();
+
+    return result;
+  } catch (exc) {
+  } finally {
+    dbClient.close();
+  }
+};
+
+module.exports = {
+  connectDb,
+  findOneUser,
+  insertUser,
+  findAll,
+  insertReply,
+  getAllRepliesByTitle,
+};
