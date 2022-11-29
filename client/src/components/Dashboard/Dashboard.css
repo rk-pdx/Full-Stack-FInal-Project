@@ -7,7 +7,11 @@ body {
   font-family: 'apple';
   color: #232323;
 }
-
+.toolbar {
+  position: fixed;
+  padding-top: 65px;
+  background: var(--background);
+}
 .featuredPosts {
   background-color: rgb(196, 15, 15);
   display: flex;
@@ -24,11 +28,11 @@ body {
 
 .postContainer {
   background-color: var(--background);
+  padding: 100px 30px 175px 30px;
   height: 100%;
   display: grid;
-  padding: 30px;
+
   gap: 0px;
-  padding-bottom: 300px;
 }
 
 /*.card {

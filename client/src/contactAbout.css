@@ -1,6 +1,7 @@
 .container-contact,
 .container-about {
   position: fixed;
+  padding-top: 85px;
   height: 100%;
   width: 100%;
   background: var(--background);
