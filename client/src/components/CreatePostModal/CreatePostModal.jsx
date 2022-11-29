@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CreatePostModal.css';
 
-function CreatePostModal({ open, onClose, user }) {
+function CreatePostModal({ open, onClose, user, setPostData }) {
   if (!open) return null;
 
   const [postTitle, setPostTitle] = useState('');
@@ -36,14 +37,29 @@ function CreatePostModal({ open, onClose, user }) {
       repliesArray,
     };
 
-    fetch('http://localhost:5001/createPost', {
+    // fetch('http://localhost:5001/createPost', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(dataToSend),
+    // }).then(() => {
+    //   console.log('Post data submitted to the backend:\n');
+    //   console.log(dataToSend);
+    // });
+    //console.log('createpost: ', dataToSend);
+    axios({
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(dataToSend),
-    }).then(() => {
-      console.log('Post data submitted to the backend:\n');
-      console.log(dataToSend);
-    });
+      url: 'http://localhost:5001/createPost',
+      data: { dataToSend },
+    })
+      .then((result) => {
+        console.log(result);
+        //navigate('/login');
+        setPostData((current) => [...current, dataToSend]);
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
+        //setPopup((current) => !current);
+      });
   };
 
   return (
