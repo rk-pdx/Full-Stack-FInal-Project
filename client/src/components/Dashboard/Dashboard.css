@@ -26,13 +26,40 @@ body {
   background-color: var(--background);
   height: 100%;
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr); */
   padding: 30px;
-  gap: 40px;
+  gap: 0px;
   padding-bottom: 300px;
 }
 
+/*.card {
+  background-color: var(--background);
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 10px;
+}
+
+.card-content {
+  padding: 10px 30px;
+}
+
+.card-category {
+  display: inline-block;
+  padding-top: 20px;
+  padding-right: 10px;
+  text-transform: uppercase;
+  color: rgb(218, 32, 100);
+  font-family: 'apple';
+  font-weight: 600;
+  font-size: 0.6875rem;
+}
+
+.card-date {
+  display: inline-block;
+  text-transform: uppercase;
+  color: gray;
+  font-family: 'apple';
+  font-weight: 600;
+  font-size: 0.6875rem;
 .card {
   background-color: var(--background);
   max-width: 400px;
@@ -84,7 +111,7 @@ body {
   text-transform: uppercase;
   color: gray;
   margin-top: 10px;
-}
+} */
 
 .authorBtn {
   color: gray;

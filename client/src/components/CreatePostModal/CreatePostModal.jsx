@@ -13,6 +13,7 @@ function CreatePostModal({ open, onClose, user }) {
   };
 
   const handleSubmit = (evt) => {
+    
     evt.preventDefault();
 
     const postId = generatePostId();
@@ -41,56 +42,55 @@ function CreatePostModal({ open, onClose, user }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dataToSend),
     }).then(() => {
+      
       console.log('Post data submitted to the backend:\n');
       console.log(dataToSend);
     });
+    
+    onClose();
   };
 
+
   return (
-    <div className='overlay'>
-      <div className='modalContainer'>
-        <div className='modalRight'>
-          <button className='closeBtn' onClick={onClose}>
-            {' '}
-            X{' '}
-          </button>
-          <div className='content'>
-            <h1>content</h1>
+    <div className='createPostModal'>
+      <div className='createPostModalOverlay'>
+        <div className='createPostModalContent'>
+ 
+          <form className='createPostModalForm'
+                onSubmit={handleSubmit}>
+              <h1 className="mt-2 mb-4">Post Submission</h1>
+              
+              <label for='title'>Title</label>
+              <input type='text' value={postTitle} onChange={(e) => setPostTitle(e.target.value)} id='title' required/>
 
-            <form onSubmit={handleSubmit}>
-              <label>
-                Title:
-                <input
-                  type='text'
-                  value={postTitle}
-                  onChange={(e) => setPostTitle(e.target.value)}
-                />
-              </label>
+              <br></br>
+              <br></br>
 
-              <label>
-                Category (optional):
-                <input
-                  type='text'
-                  value={postCategory}
-                  onChange={(e) => setPostCategory(e.target.value)}
-                />
-              </label>
+              <label for='category'>Category</label>
+              <input type='text' value={postCategory} onChange={(e) => setPostCategory(e.target.value)} id='category' required/>
 
-              <label>
-                Body:
-                <input
-                  type='text'
-                  value={postBody}
-                  onChange={(e) => setPostBody(e.target.value)}
-                />
-              </label>
-              <input type='submit' value='Submit' />
+              <br></br>
+              <br></br>
+
+              <label for='body'>Body</label>
+              <textarea rows='5' cols='80' value={postBody} onChange={(e) => setPostBody(e.target.value)} id='body' required></textarea>
+
+              <br></br>
+              <br></br>
+
+              <input className="btn btn-primary" type='submit' value='Submit' />
+              <button className='closeBtn' onClick={onClose}>
+                  {' '}
+                  Cancel{' '}
+              </button>
             </form>
-          </div>
+
         </div>
       </div>
     </div>
+    
   );
 }
+
 
 export default CreatePostModal;

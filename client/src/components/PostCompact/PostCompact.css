@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'apple';
+    src: url('../../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  }
+
+.postTitleBtn {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.postTitle h4 {
+    font-size: 24px;
+    line-height: 1.6667;
+    font-weight: 600;
+    letter-spacing: .009em;
+    font-family: 'apple';
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h4:hover {
+    cursor: pointer;
+    font-size: 25px;
+}

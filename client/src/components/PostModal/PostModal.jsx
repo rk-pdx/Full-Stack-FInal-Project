@@ -114,4 +114,5 @@ function PostModal ( { hide, showPostModal, closePostModal, postId, postDate, po
     )
 }
 
+
 export default PostModal;

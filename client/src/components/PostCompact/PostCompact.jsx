@@ -4,6 +4,8 @@ import Popup from '../popups/Popup';
 import axios from 'axios';
 import ReplyModal from '../ReplyModal/ReplyModal';
 import { UNSAFE_DataRouterStateContext } from 'react-router-dom';
+import '../PostCompact/PostCompact.css';
+
 
 function PostCompact({
   postId,
@@ -14,6 +16,7 @@ function PostCompact({
   postBody,
   repliesArray,
 }) {
+
   const [postAuthor, setPostAuthor] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
   const [author, setAuthor] = useState({
@@ -25,7 +28,8 @@ function PostCompact({
   const [hideReplyModal, setReplyModal] = useState(true);
   // Sets the popup to show or not.
   const [popup, setPopup] = useState(false);
-  // TODO: Make a Fetch() API call to the backend, passing in the userId, to receive the username.
+
+  
   useEffect(() => {
     const fetchData = async () => {
       await axios
@@ -41,7 +45,7 @@ function PostCompact({
 
     fetchData().catch((err) => console.log('Error: ', err));
   }, []);
-  //console.log(userId);
+
 
   const populatePostAuthor = () => {
     // useEffect(() => {
@@ -56,23 +60,27 @@ function PostCompact({
     setPostAuthor('Author');
   };
 
+
   const [hidePostModal, setHidePostModal] = useState(true);
+
+
   const repliesBtn_HandleClick = () => {
     setShowPostModal(true);
     setHidePostModal(false);
     document.getElementById("pModal").hidden = false;
-
   };
+
 
   const closePostModal = () => {
     setShowPostModal(false);
   };
 
+
   const toggleShowReply = () => {
     setReplyModal(hideReplyModal === true ? false : true)
   }
 
-  // TODO: finish this function: redirect the user to the appropriate user profile
+
   const authorBtn_HandleClick = () => {
     // const fetchData = async () => {
     //   await axios
@@ -90,6 +98,7 @@ function PostCompact({
     setPopup((current) => !current);
   };
 
+
   return (
     <div>
       {postAuthor === '' ? (
@@ -102,10 +111,12 @@ function PostCompact({
           <div className='postContent'>
             <span className='postCategory'>{postCategory}</span>
             <span className='postDate'>{postDate}</span>
-            <div className='postTitle'>{postTitle}</div>
-            <div className='postBody'>
-              <p className='postBodyContent'>{postBody}</p>
+            <div className='postTitle'>
+              <h4 onClick={repliesBtn_HandleClick}>{postTitle}</h4>
             </div>
+            {/* <div className='postBody'>
+              <p className='postBodyContent'>{postBody}</p>
+            </div> */}
             <div className='postStats'>
               <div>
                 <button className='authorBtn' onClick={authorBtn_HandleClick}>
@@ -141,7 +152,7 @@ function PostCompact({
                 </div>
               )}
 
-              <button className='saveBtn'>Save</button>
+              {/* <button className='saveBtn'>Save</button> */}
             </div>
           </div>
         </div>
@@ -149,5 +160,6 @@ function PostCompact({
     </div>
   );
 }
+
 
 export default PostCompact;
