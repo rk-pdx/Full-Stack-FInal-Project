@@ -14,7 +14,6 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
   };
 
   const handleSubmit = (evt) => {
-    
     evt.preventDefault();
 
     const postId = generatePostId();
@@ -38,15 +37,6 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
       repliesArray,
     };
 
-    // fetch('http://localhost:5001/createPost', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(dataToSend),
-    // }).then(() => {
-    //   console.log('Post data submitted to the backend:\n');
-    //   console.log(dataToSend);
-    // });
-    //console.log('createpost: ', dataToSend);
     axios({
       method: 'POST',
       url: 'http://localhost:5001/createPost',
@@ -54,56 +44,69 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
     })
       .then((result) => {
         console.log(result);
-        //navigate('/login');
+
         setPostData((current) => [...current, dataToSend]);
       })
       .catch((err) => {
         console.log('Error: ', err);
-        //setPopup((current) => !current);
       });
+    open();
   };
-
 
   return (
     <div className='createPostModal'>
       <div className='createPostModalOverlay'>
         <div className='createPostModalContent'>
- 
-          <form className='createPostModalForm'
-                onSubmit={handleSubmit}>
-              <h1 className="mt-2 mb-4">Post Submission</h1>
-              
-              <label for='title'>Title</label>
-              <input type='text' value={postTitle} onChange={(e) => setPostTitle(e.target.value)} id='title' required/>
+          <form className='createPostModalForm' onSubmit={handleSubmit}>
+            <h1 className='mt-2 mb-4'>Post Submission</h1>
 
-              <br></br>
-              <br></br>
+            <label for='title'>Title</label>
+            <input
+              type='text'
+              value={postTitle}
+              onChange={(e) => setPostTitle(e.target.value)}
+              id='title'
+              required
+            />
 
-              <label for='category'>Category</label>
-              <input type='text' value={postCategory} onChange={(e) => setPostCategory(e.target.value)} id='category' required/>
+            <br></br>
+            <br></br>
 
-              <br></br>
-              <br></br>
+            <label for='category'>Category</label>
+            <input
+              type='text'
+              value={postCategory}
+              onChange={(e) => setPostCategory(e.target.value)}
+              id='category'
+              required
+            />
 
-              <label for='body'>Body</label>
-              <textarea rows='5' cols='80' value={postBody} onChange={(e) => setPostBody(e.target.value)} id='body' required></textarea>
+            <br></br>
+            <br></br>
 
-              <br></br>
-              <br></br>
+            <label for='body'>Body</label>
+            <textarea
+              rows='5'
+              cols='80'
+              value={postBody}
+              onChange={(e) => setPostBody(e.target.value)}
+              id='body'
+              required
+            ></textarea>
 
-              <input className="btn btn-primary" type='submit' value='Submit' />
-              <button className='closeBtn' onClick={onClose}>
-                  {' '}
-                  Cancel{' '}
-              </button>
-            </form>
+            <br></br>
+            <br></br>
 
+            <input className='btn btn-primary' type='submit' value='Submit' />
+            <button className='closeBtn' onClick={onClose}>
+              {' '}
+              Cancel{' '}
+            </button>
+          </form>
         </div>
       </div>
     </div>
-    
   );
 }
-
 
 export default CreatePostModal;
