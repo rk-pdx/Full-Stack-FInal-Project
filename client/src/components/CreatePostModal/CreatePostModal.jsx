@@ -44,13 +44,13 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
     })
       .then((result) => {
         console.log(result);
-
         setPostData((current) => [...current, dataToSend]);
+        onClose();
       })
       .catch((err) => {
         console.log('Error: ', err);
+        onClose();
       });
-    open();
   };
 
   return (
