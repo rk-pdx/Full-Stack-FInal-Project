@@ -4,10 +4,6 @@ import '../ReplyModal/ReplyModal.css';
 
 
 function ReplyModal({hide}) {
-
-    console.log("Here======");
-    console.log(hide);
-
     
     // Id values must be inique or modals do not work properly
     // temporary fix
