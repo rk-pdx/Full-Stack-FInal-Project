@@ -1,5 +1,6 @@
 .container-wrap {
   position: fixed;
+  padding-top: 100px;
   height: 100%;
   width: 100%;
   background: var(--background);
@@ -15,65 +16,84 @@
 
 .user-link {
   text-align: center;
-  background-color: var(--primary);
+  background-color: var(--white);
+  color: var(--background);
 }
 
 a.ex2 {
   padding: 8px;
   border-radius: 10px;
+  border: 2px solid var(--white);
 }
 
 a.ex2:visited {
-  color: white;
+  color: var(--background);
 }
 
 a.ex2:link {
   font-size: 1em;
-  color: white;
+  color: var(--background);
   text-decoration: none;
 }
 a.ex2:hover {
+  box-sizing: border-box;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgb(32, 166, 228);
+  background-color: var(--background);
+  color: var(--white);
+  border: 2px solid var(--white);
 }
 
 .user-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
+  height: fit-content;
   width: 30vw;
   margin: 40px auto;
+  padding: 30px;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(33, 38, 135, 0.37);
   backdrop-filter: blur(8.5px);
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--background);
   text-transform: uppercase;
-  background-color: var(--primary);
+  background-color: var(--white);
 }
 
-.login-form {
+.login-form,
+.contact-form {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.login-input,
-.signup-input {
-  padding: 10px;
-  border: rgb(170, 168, 168) 0.5px solid;
-  border-radius: 50px;
-  margin-bottom: 12px;
-}
-
 .login-button,
-.signup-button {
+.signup-button,
+.contact-input {
   padding: 10px;
   border: rgb(170, 168, 168) 0.5px solid;
-  border-radius: 50px;
+  border-radius: 5px;
   background-color: #ffffff;
   font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-button {
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.login-input,
+.signup-input,
+.contact-input {
+  padding: 10px;
+  border: rgb(170, 168, 168) 0.5px solid;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.contact-textarea {
+  padding: 10px;
 }
 
 button.login-button:hover,
@@ -81,4 +101,5 @@ button.signup-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: var(--secondary);
   color: var(--white);
+  border: 2px solid white;
 }

@@ -1,6 +1,8 @@
+import './account.css';
+
 const Account = ({ user }) => {
   return (
-    <div>
+    <div className='account-style'>
       <ul>
         <li>
           User: {user.firstName} {user.lastName}

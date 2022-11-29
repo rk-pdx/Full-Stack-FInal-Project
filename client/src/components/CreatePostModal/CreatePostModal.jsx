@@ -60,7 +60,7 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
           <form className='createPostModalForm' onSubmit={handleSubmit}>
             <h1 className='mt-2 mb-4'>Post Submission</h1>
 
-            <label for='title'>Title</label>
+            <label htmlFor='title'>Title</label>
             <input
               type='text'
               value={postTitle}
@@ -72,7 +72,7 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
             <br></br>
             <br></br>
 
-            <label for='category'>Category</label>
+            <label htmlFor='category'>Category</label>
             <input
               type='text'
               value={postCategory}
@@ -84,7 +84,7 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
             <br></br>
             <br></br>
 
-            <label for='body'>Body</label>
+            <label htmlFor='body'>Body</label>
             <textarea
               rows='5'
               cols='80'
