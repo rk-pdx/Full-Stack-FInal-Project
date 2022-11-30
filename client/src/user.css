@@ -70,8 +70,9 @@ a.ex2:hover {
 .login-button,
 .signup-button,
 .contact-input {
+  box-sizing: border-box;
   padding: 10px;
-  border: rgb(170, 168, 168) 0.5px solid;
+  border: 2px rgb(170, 168, 168) solid;
   border-radius: 5px;
   background-color: #ffffff;
   font-weight: 700;
@@ -99,7 +100,7 @@ a.ex2:hover {
 button.login-button:hover,
 button.signup-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: var(--secondary);
+  background-color: var(--background);
   color: var(--white);
   border: 2px solid white;
 }
