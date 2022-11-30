@@ -12,6 +12,7 @@ import Dashboard from './Dashboard/Dashboard.jsx';
 const handleLogout = () => {
   localStorage.removeItem('user');
   localStorage.removeItem('isLoggedIn', true);
+  console.log('Signed out');
 };
 
 // This renders the navbar and routing for the application

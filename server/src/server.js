@@ -61,16 +61,16 @@ app.get('/getPosts', async (req, res) => {
 // It will relay a success or failure.
 app.get('/login', async (req, res) => {
   console.log('\nThis is from the server login');
-  const results = await findOneUser(req.query.name).catch(console.log());
+  const results = await findOneUser(req.query.name);
 
   if (results) {
-    console.log('results: ', results);
+    //console.log('results: ', results);
     res.status(200).json(results);
   } else {
     console.log('no results for some');
     res.status(400).json(results);
   }
-  res.end();
+  //res.end();
 });
 
 // This route will insert a user into the database.

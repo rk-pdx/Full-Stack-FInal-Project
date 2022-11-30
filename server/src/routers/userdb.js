@@ -45,9 +45,10 @@ const findOneUser = async (userName) => {
   } catch (err) {
     console.log('Error: ', err);
   } finally {
-    setTimeout(() => {
-      client.close();
-    }, 1500);
+    // setTimeout(() => {
+    //   client.close();
+    // }, 1500);
+    client.close();
     console.log('Database closed');
   }
 };

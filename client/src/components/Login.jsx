@@ -20,7 +20,7 @@ const Login = ({ setUser, setLogged, logged }) => {
     await axios
       .get('http://localhost:5001/login', { params: { name: userName } })
       .then((result) => {
-        console.log(result.data);
+        console.log('login: ', result.data);
         if (result.data) {
           console.log(`User found. User name: ${result.data.firstName}`);
           setUser({
@@ -31,6 +31,7 @@ const Login = ({ setUser, setLogged, logged }) => {
           }
           localStorage.setItem('user', JSON.stringify(result.data));
           localStorage.setItem('isLoggedIn', true);
+          console.log('login');
           navigate('/');
         }
       })

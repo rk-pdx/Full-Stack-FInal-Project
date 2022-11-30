@@ -102,7 +102,7 @@
   background-color: var(--white);
   width: 191px;
   height: 100px;
-  top: 200px;
+  top: 220px;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 8px;
   z-index: 2;
@@ -131,8 +131,13 @@
   top: 5px;
   padding: 2px 5px;
   color: rgb(0, 0, 0);
+  background-color: white;
   border: 0.1px solid rgb(0, 0, 0);
   border-radius: 8px;
+}
+.login-button-pop:hover {
+  color: white;
+  background-color: black;
 }
 
 .login-pop-upText {
@@ -147,12 +152,13 @@
 /* Login pop up css section  */
 .signup-pop-up {
   position: absolute;
+
   overflow-y: visible;
   background-color: var(--white);
   width: 191px;
   height: 100px;
-  bottom: 235px;
-  border: 2px solid red;
+  bottom: -75px;
+  border: 2px solid black;
   border-radius: 8px;
   z-index: 2;
 }
@@ -161,10 +167,10 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  border-top: 2px solid red;
+  border-top: 2px solid black;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
-  border-left: 2px solid red;
+  border-left: 2px solid black;
   bottom: 100%;
   left: 50%;
   margin-left: -5px;
@@ -179,11 +185,15 @@
   right: 5px;
   top: 5px;
   padding: 2px 5px;
-  color: red;
-  border: 0.1px solid red;
+  color: black;
+  background-color: white;
+  border: 0.1px solid black;
   border-radius: 8px;
 }
-
+.signup-button-pop:hover {
+  background-color: black;
+  color: white;
+}
 .signup-pop-upText {
   display: flex;
   flex-direction: column;
