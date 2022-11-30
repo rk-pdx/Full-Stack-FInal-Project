@@ -19,7 +19,10 @@
 
 .postModalContent {
     width: auto;
-    height:auto;
+    max-width: 50vw;
+    height: auto;
+    max-height: -webkit-fill-available;
+    overflow-y: scroll;
     position: absolute;
     top: 40%;
     left: 50%;
