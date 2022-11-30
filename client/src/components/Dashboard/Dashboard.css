@@ -31,88 +31,6 @@ body {
   padding-bottom: 300px;
 }
 
-/*.card {
-  background-color: var(--background);
-  max-width: 400px;
-  max-height: 300px;
-  border-radius: 10px;
-}
-
-.card-content {
-  padding: 10px 30px;
-}
-
-.card-category {
-  display: inline-block;
-  padding-top: 20px;
-  padding-right: 10px;
-  text-transform: uppercase;
-  color: rgb(218, 32, 100);
-  font-family: 'apple';
-  font-weight: 600;
-  font-size: 0.6875rem;
-}
-
-.card-date {
-  display: inline-block;
-  text-transform: uppercase;
-  color: gray;
-  font-family: 'apple';
-  font-weight: 600;
-  font-size: 0.6875rem;
-.card {
-  background-color: var(--background);
-  max-width: 400px;
-  max-height: 300px;
-  border-radius: 10px;
-}
-
-.card-content {
-  padding: 10px 30px;
-}
-
-.card-category {
-  display: inline-block;
-  padding-top: 20px;
-  padding-right: 10px;
-  text-transform: uppercase;
-  color: rgb(218, 32, 100);
-  font-family: 'apple';
-  font-weight: 600;
-  font-size: 0.6875rem;
-}
-
-.card-date {
-  display: inline-block;
-  text-transform: uppercase;
-  color: gray;
-  font-family: 'apple';
-  font-weight: 600;
-  font-size: 0.6875rem;
-}
-
-.card-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  border-bottom: 1px solid #cdcdcd;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.card-stats {
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 2rem;
-  margin-top: 2px;
-  font-family: 'apple';
-  font-weight: 600;
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  color: gray;
-  margin-top: 10px;
-} */
-
 .authorBtn {
   color: gray;
   background: none;
@@ -137,6 +55,12 @@ body {
   width: fit-content;
 }
 
+.loadingPosts {
+  color: white;
+  font-size: 40px;
+  font-family: 'apple';
+}
+
 .repliesBtn:hover {
   color: white;
 }
@@ -155,6 +79,22 @@ body {
   color: white;
 }
 
+.createPostBtn {
+  background-color: transparent;
+  margin-left: 60px;
+  font-family: 'apple';
+  font-size: 20px;
+  color: rgb(153, 153, 153);
+  border-color: transparent;
+}
+
+.createPostBtn:hover {
+  color: white;
+}
+
+.toolbar {
+  background-color: black;
+}
 /* -------------------------------------*/
 
 .post {
@@ -221,4 +161,47 @@ body {
   font-size: 0.6875rem;
   text-transform: uppercase;
   color: gray;
+}
+
+
+.createPostModal, .createPostModalOverlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.createPostModalOverlay {
+  background-color: rgba(57, 57, 57, 0.8);
+}
+
+.createPostModalForm {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+label {
+  display: block;
+  color: black;
+}
+
+h1 {
+  margin-left: 0px;
+  color: black;
+}
+
+input {
+  border-color: black;
+}
+
+textarea {
+  border-color: black;
 }

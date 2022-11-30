@@ -7,25 +7,32 @@ import './Dashboard.css';
 import PostPopup from '../popups/PostPopup';
 
 function Dashboard({ user, logged }) {
+  
   const [postData, setPostData] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [logIn, setLogIn] = useState(logged);
   const [popup, setPopup] = useState(false);
+  const [enoughForFeatured, setEnoughForFeatured] = useState(false);
+  const [randomPostIndices, setRandomPostIndices] = useState();
+
 
   useEffect(() => {
     setLogIn(logged);
   }, [logged]);
 
+
   // We will fetch all the Posts with this get call to the server.
   useEffect(() => {
     const fetchData = async () => {
       await axios.get('http://localhost:5001/getPosts').then((result) => {
+        if (result.data.length > 5) setEnoughForFeatured(true);
         setPostData(result.data);
       });
     };
 
     fetchData().catch((err) => console.log('Error: ', err));
   }, []);
+
 
   const ModalBtn_HandleClick = () => {
     if (logIn) {
@@ -82,10 +89,23 @@ function Dashboard({ user, logged }) {
     setPostData(postData);
   };
 
+
+  const fetchRandomPosts = () => {
+    let rand1 = Math.floor(Math.random() * postData.length);
+    let rand2;
+
+    while (rand1 === rand2) {
+      rand2 = Math.floor(Math.random() * postData.length);
+    }
+
+    setRandomPostIndices([rand1, rand2]);
+  }
+
+
   return (
     <div className='dashboardContainer'>
       <div className='toolbar'>
-        <button className='modalBtn' onClick={HandleClick_Popup}>
+        <button className='createPostBtn' onClick={HandleClick_Popup}>
           Create Post
         </button>
         <PostPopup open={popup} setPopup={setPopup} />
@@ -100,14 +120,10 @@ function Dashboard({ user, logged }) {
       <div className='postContainer'>
         {postData === '' ? (
           <div>
-            {/* <p>Loading posts...</p>
-            {populatePostData()} */}
+            <p className='loadingPosts'>Loading posts...</p>
           </div>
         ) : (
-          <div>
-            
-            {postData.map((post, index) => <PostCompact key={index} {...post} />)}
-          </div>
+          postData.map((post, index) => <PostCompact key={index} {...post} />)
         )}
       </div>
     </div>

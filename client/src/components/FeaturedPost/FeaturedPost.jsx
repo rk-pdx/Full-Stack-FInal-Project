@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import replyIcon from '../../images/reply-icon.png';
+import '../FeaturedPost/FeaturedPost.css';
 
 
 function FeaturedPost({category, date, title, author, numReplies, body}) {
@@ -12,12 +12,12 @@ function FeaturedPost({category, date, title, author, numReplies, body}) {
 
     return (
         
-        <div className="card">
-            <div className="card-content">
-                <span className='card-category'>{category}</span>
-                <span className='card-date'>{date}</span>
-                <div className='card-title'>{title}</div>
-                <div className='card-stats'>
+        <div className="featuredPost">
+            <div className="featuredPostContent">
+                <span className='featuredPostCategory'>{category}</span>
+                <span className='featuredPostDate'>{date}</span>
+                <div className='featuredPostTitle'>{title}</div>
+                <div className='featuredPostStats'>
                    <button className='authorBtn'>{author}</button>
                    <button className='repliesBtn' onClick={togglePostModal}>{numReplies}</button>
                    <DisplayPostModal openPostModal={openPostModal} toggle={togglePostModal}/>

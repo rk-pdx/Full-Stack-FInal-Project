@@ -11,6 +11,7 @@
     right: 0;
     bottom: 0;
     position: fixed;
+    color: black;
 }
 
 .createPostModalOverlay {
@@ -29,4 +30,9 @@
 
 label {
     display: block;
+    color: black;
+}
+
+.createPostLabel {
+    color: black;
 }

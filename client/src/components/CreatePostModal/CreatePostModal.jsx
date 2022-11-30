@@ -73,7 +73,7 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
                 onSubmit={handleSubmit}>
               <h1 className="mt-2 mb-4">Post Submission</h1>
               
-              <label for='title'>Title</label>
+              <label className='createPostLabel' for='title'>Title</label>
               <input type='text' value={postTitle} onChange={(e) => setPostTitle(e.target.value)} id='title' required/>
 
               <br></br>
