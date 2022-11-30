@@ -21,6 +21,7 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
   const [hideReplyModal, setReplyModal] = useState(true);
   // Sets the popup to show or not.
   const [popup, setPopup] = useState(false);
+  const [showSecondPostModal, setShowSecondPostModal] = useState(false);
   
 
   useEffect(() => {
@@ -58,10 +59,11 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
   const [hidePostModal, setHidePostModal] = useState(true);
 
 
-  const repliesBtn_HandleClick = () => {
-    setShowPostModal(true);
-    setHidePostModal(false);
-    document.getElementById("pModal").hidden = false;
+  const toggleModal = () => {
+    // setShowPostModal(true);
+    // setHidePostModal(false);
+    // document.getElementById("pModal").hidden = false;
+    setShowSecondPostModal(prev => !prev);
   };
 
 
@@ -94,20 +96,64 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
 
 
   return (
-    <div>
-      <SecondPostModal
-              hide = {hidePostModal}
-              showPostModal={showPostModal}
-              closePostModal={closePostModal}
-              postId={postId}
-              postDate={postDate}
-              postTitle={postTitle}
-              userId={userId}
-              postCategory={postCategory}
-              postBody={postBody}
-              repliesArray={repliesArray}
-            />
-    </div>
+    <div className='postCompact'>
+      {postAuthor === '' ? (
+        <div>
+          loading post...
+          {populatePostAuthor()}
+        </div>
+      ) : (
+        <div className='post'>
+          <div className='postContent'>
+            <span className='postCategory'>{postCategory}</span>
+            <span className='postDate'>{postDate}</span>
+            <div className='postTitle'>
+              <h4 onClick={toggleModal}>{postTitle}</h4>
+            </div>
+            <div className='postStats'>
+              <div>
+                <button className='authorBtn' onClick={authorBtn_HandleClick}>
+                  {postAuthor}
+                </button>
+                <Popup open={popup} author={author} setPopup={setPopup} />
+              </div>
+              <button className='repliesBtn' onClick={toggleModal}>
+                    {repliesArray[0]} replies
+              </button>
+              <SecondPostModal
+                  showSecondPostModal={showSecondPostModal}
+                  toggleModal={toggleModal}
+                  closePostModal={closePostModal}
+                  postId={postId}
+                  postDate={postDate}
+                  postTitle={postTitle}
+                  postAuthor={postAuthor}
+                  userId={userId}
+                  postCategory={postCategory}
+                  postBody={postBody}
+                  repliesArray={repliesArray}
+              />
+
+              {/* <button className='saveBtn'>Save</button> */}
+            </div>
+          </div>
+        </div>
+      )}
+  </div>
+    // <div>
+    //   <SecondPostModal
+    //           hide = {hidePostModal}
+    //           showPostModal={showPostModal}
+    //           closePostModal={closePostModal}
+    //           postId={postId}
+    //           postDate={postDate}
+    //           postTitle={postTitle}
+    //           userId={userId}
+    //           postCategory={postCategory}
+    //           postBody={postBody}
+    //           repliesArray={repliesArray}
+    //         />
+    // </div>
   );
 }
 

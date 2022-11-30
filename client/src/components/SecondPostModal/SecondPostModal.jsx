@@ -5,11 +5,23 @@ import '../SecondPostModal/SecondPostModal.css';
 import axios from 'axios';
 
 
-function SecondPostModal ({hide, showPostModal, closePostModal, postId, postDate, postTitle, userId, postCategory, postBody, repliesArray}) {
+function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, postTitle, postAuthor, userId, postCategory, postBody, repliesArray}) {
+
+    if (!showSecondPostModal) return null;
 
     const [newRepliesArray, setNewRepliesArray] = useState([]);
     const [currentReply, setCurrentReply] = useState();
     
+
+    const handleSubmit2 = () => {
+        console.log("hit")
+        axios.get('http://localhost:5001/getAllRepliesByTitle', {params: {pTitle: postId}})
+        .then((response) => {
+            console.log('-------------------------- RESPONSE ON THE FRONTEND --------------------------')
+            console.log(response.data);
+            setNewRepliesArray(response.data);
+        })
+    }
     
     const handleSubmit = async (evt) => {
         evt.preventDefault();
@@ -20,75 +32,62 @@ function SecondPostModal ({hide, showPostModal, closePostModal, postId, postDate
             body: currentReply
         }
 
-        axios({
+        await axios({
             method: 'POST',
             url: 'http://localhost:5001/submitReply',
             data: { dataToSend },
         })
-            .then((result) => {
-            console.log(result);
-            setPostData((current) => [...current, dataToSend]);
-            onClose();
-            })
-            .catch((err) => {
+        .then(
+            handleSubmit2()
+        )
+        .catch((err) => {
             console.log('Error: ', err);
             onClose();
         });
-
-
-        await axios.get('http://localhost:5001/getAllRepliesByTitle', {params: {pTitle: postId}})
-        .then((response) => {
-            alert(response.data);
-            console.log(response);
-        })
-
-
-        // axios({
-        //     method: 'GET',
-        //     url: 'http://localhost:5001/getAllRepliesByTitle',
-        //     data: { dataToSend2 },
-        // })
-        // .then((result) => {
-        //     setNewRepliesArray(result);
-        //     alert(newRepliesArray);
-        //     onClose();
-        // })
-        // .catch((err) => {
-        //     console.log('Error: ', err);
-        //     onClose();
-        // });
     }
 
 
     return (
-       <div className='container'>
-            {(newRepliesArray.length === 0) ? (
-                <form>
-                    <label htmlFor='reply'>Reply</label>
-                    <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
-                    <button className='submitBtn' onClick={handleSubmit}>
-                        Submit
-                    </button>
-                    <div className='repliesSection'>
-                        {/* {new.map((post, index) => <Reply key={index} {...post} />)} */}
+        <div className='secondPostModal'>
+            <div className='secondPostModalOverlay'>
+                <div className='secondPostModalContent'>
+                    <h1>{postTitle}</h1>
+                    <h5>Author: {postAuthor}</h5>
+                    <p>{postBody}</p>
 
+                    <div className='replies'>
+                        {(newRepliesArray.length === 0) ? (
+                            <form>
+                                <label htmlFor='reply'></label>
+                                <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
+                                <button className='submitBtn' onClick={handleSubmit}>
+                                    Submit
+                                </button>
+                            </form>
+                        ) : (
+                            <div>
+                                <hr className='commentsSeparator'></hr>
+                                <h2>COMMENTS</h2>
+                                <div className='repliesSection'>
+                                    {newRepliesArray.map((reply, index) => <Reply key={index} body={reply['dataToSend']['body']} />)}
+                                </div>
+                                <form>
+                                    <label htmlFor='reply'></label>
+                                    <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
+                                    <button className='submitBtn' onClick={handleSubmit}>
+                                        Submit
+                                    </button>
+                                </form>
+                            </div>
+                        )}
                     </div>
-                </form>
-            ) : (
-                <div>
-                    COMMENTS
-                    <form>
-                        <label htmlFor='reply'>Reply</label>
-                        <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
-                        <button className='submitBtn' onClick={handleSubmit}>
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            )}
 
-       </div>
+                    <button onClick={toggleModal}>Cancel</button>
+                </div>
+            </div>
+        </div>
     )
 }
+
 
 export default SecondPostModal;
