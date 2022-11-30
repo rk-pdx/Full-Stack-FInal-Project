@@ -5,17 +5,10 @@ import axios from 'axios';
 import ReplyModal from '../ReplyModal/ReplyModal';
 import { UNSAFE_DataRouterStateContext } from 'react-router-dom';
 import '../PostCompact/PostCompact.css';
+import SecondPostModal from '../SecondPostModal/SecondPostModal.jsx';
 
 
-function PostCompact({
-  postId,
-  postDate,
-  postTitle,
-  userId,
-  postCategory,
-  postBody,
-  repliesArray,
-}) {
+function PostCompact({postId, postDate, postTitle, userId, postCategory, postBody, repliesArray,}) {
 
   const [postAuthor, setPostAuthor] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
@@ -28,8 +21,9 @@ function PostCompact({
   const [hideReplyModal, setReplyModal] = useState(true);
   // Sets the popup to show or not.
   const [popup, setPopup] = useState(false);
-
+  const [showSecondPostModal, setShowSecondPostModal] = useState(false);
   
+
   useEffect(() => {
     const fetchData = async () => {
       await axios
@@ -39,6 +33,7 @@ function PostCompact({
             ...values,
             ...result.data,
           }));
+
           setPostAuthor(result.data._id);
         });
     };
@@ -64,10 +59,11 @@ function PostCompact({
   const [hidePostModal, setHidePostModal] = useState(true);
 
 
-  const repliesBtn_HandleClick = () => {
-    setShowPostModal(true);
-    setHidePostModal(false);
-    document.getElementById("pModal").hidden = false;
+  const toggleModal = () => {
+    // setShowPostModal(true);
+    // setHidePostModal(false);
+    // document.getElementById("pModal").hidden = false;
+    setShowSecondPostModal(prev => !prev);
   };
 
 
@@ -100,7 +96,7 @@ function PostCompact({
 
 
   return (
-    <div>
+    <div className='postCompact'>
       {postAuthor === '' ? (
         <div>
           loading post...
@@ -112,11 +108,8 @@ function PostCompact({
             <span className='postCategory'>{postCategory}</span>
             <span className='postDate'>{postDate}</span>
             <div className='postTitle'>
-              <h4 onClick={repliesBtn_HandleClick}>{postTitle}</h4>
+              <h4 onClick={toggleModal}>{postTitle}</h4>
             </div>
-            {/* <div className='postBody'>
-              <p className='postBodyContent'>{postBody}</p>
-            </div> */}
             <div className='postStats'>
               <div>
                 <button className='authorBtn' onClick={authorBtn_HandleClick}>
@@ -124,51 +117,48 @@ function PostCompact({
                 </button>
                 <Popup open={popup} author={author} setPopup={setPopup} />
               </div>
-              {repliesArray.length !== 0 ? (
-                <div>
-                  <button
-                    className='repliesBtn'
-                    onClick={repliesBtn_HandleClick}
-                  >
+              <button className='repliesBtn' onClick={toggleModal}>
                     {repliesArray[0]} replies
-                  </button>
-                  <PostModal
-                    hide = {hidePostModal}
-                    showPostModal={showPostModal}
-                    closePostModal={closePostModal}
-                    postId={postId}
-                    postDate={postDate}
-                    postTitle={postTitle}
-                    userId={userId}
-                    postCategory={postCategory}
-                    postBody={postBody}
-                    repliesArray={repliesArray}
-                  />
-                </div>
-              ) : (
-                <div>
-                <button className="noRepliesBtn" onClick={toggleShowReply}>Add First Reply</button>
-                <ReplyModal hide = {hideReplyModal} 
-                    showPostModal={showPostModal}
-                    closePostModal={closePostModal}
-                    postId={postId}
-                    postDate={postDate}
-                    postTitle={postTitle}
-                    userId={userId}
-                    postCategory={postCategory}
-                    postBody={postBody}
-                    repliesArray={repliesArray}/>
-                </div>
-              )}
+              </button>
+              <SecondPostModal
+                  showSecondPostModal={showSecondPostModal}
+                  toggleModal={toggleModal}
+                  closePostModal={closePostModal}
+                  postId={postId}
+                  postDate={postDate}
+                  postTitle={postTitle}
+                  postAuthor={postAuthor}
+                  userId={userId}
+                  postCategory={postCategory}
+                  postBody={postBody}
+                  repliesArray={repliesArray}
+              />
 
               {/* <button className='saveBtn'>Save</button> */}
             </div>
           </div>
         </div>
       )}
-    </div>
+  </div>
+    // <div>
+    //   <SecondPostModal
+    //           hide = {hidePostModal}
+    //           showPostModal={showPostModal}
+    //           closePostModal={closePostModal}
+    //           postId={postId}
+    //           postDate={postDate}
+    //           postTitle={postTitle}
+    //           userId={userId}
+    //           postCategory={postCategory}
+    //           postBody={postBody}
+    //           repliesArray={repliesArray}
+    //         />
+    // </div>
   );
 }
 
 
 export default PostCompact;
+
+
+
