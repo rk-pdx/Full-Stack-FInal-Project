@@ -198,7 +198,7 @@ const getAllRepliesByTitle = async (pTitle) => {
     let result = await dbClient
       .db('FallFullStack22')
       .collection('Replies')
-      .find({ parentId: pTitle })
+      .find({ 'dataToSend.parent_id': pTitle })
       .toArray();
 
     return result;

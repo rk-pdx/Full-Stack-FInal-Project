@@ -97,10 +97,10 @@ app.post('/processReply', (req, res) => {
 });
 
 app.get('/getAllRepliesByTitle', async (req, res) => {
-  console.log("GET ALL REPLIES BY TITLE");
-  console.log(req.query.pTitle);
-  let result = await getAllRepliesByTitle(req.body);
+  let result = await getAllRepliesByTitle(req.query.pTitle);
 
+  console.log('Right here===============');
+  console.log(result);
   if (result !== []) {
     res.status(200).json(result);
   } else {
@@ -114,7 +114,6 @@ app.post('/updatePostReplyCount', async (req, res) => {
 
 // TODO: Insert the request body into the database
 app.post('/createPost', async (req, res) => {
-  
   //console.log(req);
   // insert into database here
   // res.end();
@@ -131,11 +130,11 @@ app.post('/createPost', async (req, res) => {
   res.end();
 });
 
-app.post('/submitReply', async(req, res) => {
-  console.log("FROM THE SUBMIT REPLY")
+app.post('/submitReply', async (req, res) => {
+  console.log('FROM THE SUBMIT REPLY');
   console.log(req.body);
   insertReply(req.body);
-})
+});
 
 app.listen(5001, () => {
   console.log(`Server running at http://localhost:5001`);
