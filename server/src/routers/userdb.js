@@ -207,6 +207,29 @@ const getAllRepliesByTitle = async (pTitle) => {
   }
 };
 
+const updatePostReplyCount = async (pTitle) => {
+  const uri =
+    'mongodb+srv://ProjectDb:1ezrR8bxfy0LIeRi@cluster0.tz5vubl.mongodb.net/?retryWrites=true&w=majority';
+
+  let dbClient = new MongoClient(uri);
+
+  try {
+    let success = await dbClient.connect();
+
+    dbClient().db('FallFullStack22').collection('');
+
+    if (success.acknowledged) {
+      //dbClient
+      //  .db('FallFullStack22')
+      //  .collection('Post')
+      //  .updateOne({ postTitle: {pTtile} }, {repliesArray[0]:});
+    }
+  } catch (exc) {
+  } finally {
+    dbClient.close();
+  }
+};
+
 module.exports = {
   connectDb,
   findOneUser,
@@ -215,4 +238,5 @@ module.exports = {
   insertReply,
   getAllRepliesByTitle,
   insertPost,
+  updatePostReplyCount,
 };

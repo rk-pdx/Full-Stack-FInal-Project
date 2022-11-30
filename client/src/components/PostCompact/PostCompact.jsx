@@ -130,7 +130,7 @@ function PostCompact({
                     className='repliesBtn'
                     onClick={repliesBtn_HandleClick}
                   >
-                    {repliesArray.length} replies
+                    {repliesArray[0]} replies
                   </button>
                   <PostModal
                     hide = {hidePostModal}
@@ -148,7 +148,16 @@ function PostCompact({
               ) : (
                 <div>
                 <button className="noRepliesBtn" onClick={toggleShowReply}>Add First Reply</button>
-                <ReplyModal hide = {hideReplyModal} />
+                <ReplyModal hide = {hideReplyModal} 
+                    showPostModal={showPostModal}
+                    closePostModal={closePostModal}
+                    postId={postId}
+                    postDate={postDate}
+                    postTitle={postTitle}
+                    userId={userId}
+                    postCategory={postCategory}
+                    postBody={postBody}
+                    repliesArray={repliesArray}/>
                 </div>
               )}
 

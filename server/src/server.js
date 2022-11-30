@@ -11,6 +11,7 @@ const {
   insertReply,
   getAllRepliesByTitle,
   insertPost,
+  updatePostReplyCount,
 } = require('../src/routers/userdb');
 const app = express();
 
@@ -103,6 +104,10 @@ app.get('/getAllRepliesByTitle', async (req, res) => {
   } else {
     res.status(204);
   }
+});
+
+app.post('/updatePostReplyCount', async (req, res) => {
+  updatePostReplyCount(req.body);
 });
 
 // TODO: Insert the request body into the database
