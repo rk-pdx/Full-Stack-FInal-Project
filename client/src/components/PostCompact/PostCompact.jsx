@@ -82,19 +82,6 @@ function PostCompact({
 
 
   const authorBtn_HandleClick = () => {
-    // const fetchData = async () => {
-    //   await axios
-    //     .get('http://localhost:5001/login', { params: { name: userId } })
-    //     .then((result) => {
-    //       setAuthor((values) => ({
-    //         ...values,
-    //         ...result.data,
-    //       }));
-    //     });
-    // };
-
-    // fetchData().catch(console.error());
-
     setPopup((current) => !current);
   };
 
@@ -119,6 +106,7 @@ function PostCompact({
             </div> */}
             <div className='postStats'>
               <div>
+                Author&nbsp;
                 <button className='authorBtn' onClick={authorBtn_HandleClick}>
                   {postAuthor}
                 </button>
@@ -147,8 +135,8 @@ function PostCompact({
                 </div>
               ) : (
                 <div>
-                <button className="noRepliesBtn" onClick={toggleShowReply}>Add First Reply</button>
-                <ReplyModal hide = {hideReplyModal} />
+                  <button className="noRepliesBtn" onClick={toggleShowReply}>Add First Reply</button>
+                  <ReplyModal hide = {hideReplyModal} />
                 </div>
               )}
 

@@ -43,29 +43,8 @@ function Dashboard({ user, logged }) {
     }
   };
 
-  //  TODO: Create route-handler for the endpoint /getPosts and return all posts in the format:
-  //  [
-  //       {
-  //         postId: '...',
-  //         postDate: '...',
-  //         postTitle: '...',
-  //         userId: '...',
-  //         postCategory: '...',
-  //         postBody: '...',
-  //         repliesArray: [...],
-  //       }
-  //  ]
 
   const populatePostData = () => {
-    // useEffect(() => {
-    //   fetch('https://localhost:5001/getPosts').then(
-    //     response => response.json()
-    //   ).then(
-    //     data => {
-    //       setPostData(data)
-    //     }
-    //   )
-    // }, []);
 
     const postData = [
       {
@@ -122,11 +101,13 @@ function Dashboard({ user, logged }) {
         {postData === '' ? (
           <div>
             {/* <p>Loading posts...</p>
-
             {populatePostData()} */}
           </div>
         ) : (
-          postData.map((post, index) => <PostCompact key={index} {...post} />)
+          <div>
+            
+            {postData.map((post, index) => <PostCompact key={index} {...post} />)}
+          </div>
         )}
       </div>
     </div>

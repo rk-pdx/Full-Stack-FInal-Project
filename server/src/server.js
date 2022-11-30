@@ -12,6 +12,7 @@ const {
   getAllRepliesByTitle,
   insertPost,
 } = require('../src/routers/userdb');
+
 const app = express();
 
 // uncomment to use this connection to the db
@@ -122,6 +123,11 @@ app.post('/createPost', async (req, res) => {
   }
   res.end();
 });
+
+app.post('/contactAuthors', async (req, res) => {
+  console.log(req.body.dataToSend);
+  res.sendStatus(200);
+})
 
 app.listen(5001, () => {
   console.log(`Server running at http://localhost:5001`);

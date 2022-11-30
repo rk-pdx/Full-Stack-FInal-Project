@@ -101,7 +101,6 @@ function CreatePostModal({ open, onClose, user, setPostData }) {
         </div>
       </div>
     </div>
-    
   );
 }
 

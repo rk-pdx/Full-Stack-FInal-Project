@@ -1,0 +1,51 @@
+/* .container-contact {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--background);
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+} */
+
+.container-contact {
+  background: var(--background);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+h1 {
+  color: white;
+  margin: 50px;
+}
+
+.contact-body {
+  margin: 50px;
+}
+
+.contact-information {
+  color: white;
+}
+
+.page-break {
+  border-color: rgb(34, 34, 34);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.openFormBtn {
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: transparent;
+  color: rgb(153, 153, 153);
+  font-size: 15px;
+  border: 0px;
+  width: fit-content;
+}
+
+.openFormBtn:hover {
+  color: white;
+  cursor: pointer;
+}
