@@ -52,6 +52,12 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
     }
 
 
+    const returnCommentKeyword = () => {
+        if (newRepliesArray.length === 1) return 'COMMENT';
+        else return 'COMMENTS';
+    }
+
+
     return (
         <div className='secondPostModal'>
             <div className='secondPostModalOverlay'>
@@ -65,12 +71,14 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
 
                     <div className='replies'>
                         <hr className='commentsSeparator'></hr>
-                        <h2 className='commentsHeader'>{newRepliesArray.length} COMMENTS </h2>
+                        <h2 className='commentsHeader'>{newRepliesArray.length} {returnCommentKeyword()} </h2>
                         {(newRepliesArray.length === 0) ? (
                             <div>
                                 {handleSubmit2()}
                                 <form>
                                     <label htmlFor='reply'></label>
+                                    <br></br>
+                                    <br></br>
                                     {/* <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/> */}
                                     <textarea
                                         rows='5'
@@ -94,6 +102,8 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                                     <label htmlFor='reply'></label>
                                     {/* <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/> */}
                                     <hr></hr>
+                                    <br></br>
+                                    <br></br>
                                     <h3 className='commentInstructionHeader'>Enter your comment here (logged in as <span className='boldedAuthor'>{postAuthor}</span>):</h3>
                                     <textarea
                                         rows='5'
