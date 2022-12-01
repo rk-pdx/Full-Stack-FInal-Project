@@ -4,15 +4,20 @@ import uuid from 'react-uuid';
 import '../SecondPostModal/SecondPostModal.css';
 import axios from 'axios';
 
+// This is the full expanded form of the post, and contains all of the information about the post.
+// It is a modal that opens up after the user clicks on the compacted post's title or "see replies" button.
 
 function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, postTitle, postAuthor, userId, postCategory, postBody, repliesArray}) {
-
+    // if the instruction is for the post to not be shown, then just return null
     if (!showSecondPostModal) return null;
 
+    // set local state for the replies array (this will hold all the replies for this specific post)
     const [newRepliesArray, setNewRepliesArray] = useState([]);
+    // this state holds the reply that is typed by the user.
     const [currentReply, setCurrentReply] = useState();
     
-
+    // this function will get all replies by title, for a specific post id, and then set the newRepliesArray state
+    // as this response.
     const handleSubmit2 = () => {
         console.log("hit")
         axios.get('http://localhost:5001/getAllRepliesByTitle', {params: {pTitle: postId}})
@@ -22,7 +27,9 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
             setNewRepliesArray(response.data);
         })
     }
-    
+
+    //This is an async/await function that will make a fetch call to the backend, to store the reply that the user
+    //typed in.
     const handleSubmit = async (evt) => {
         if (currentReply === undefined) {
             alert('Please enter a comment.');
@@ -52,6 +59,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
     }
 
 
+    // Just a simple function that returns either the plural from or singular form of the word 'comment'
     const returnCommentKeyword = () => {
         if (newRepliesArray.length === 1) return 'COMMENT';
         else return 'COMMENTS';

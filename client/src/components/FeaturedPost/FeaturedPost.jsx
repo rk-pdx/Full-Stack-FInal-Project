@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import replyIcon from '../../images/reply-icon.png';
 
+// This was a WIP feature that we were planning on implementing, but ran out of time.
+// This would have been one of two components that would have been rendered in the Featured section.
 
 function FeaturedPost({category, date, title, author, numReplies, body}) {
 

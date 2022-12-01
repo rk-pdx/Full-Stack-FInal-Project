@@ -3,16 +3,21 @@ import axios from 'axios';
 import './CreatePostModal.css';
 
 function CreatePostModal({ open, onClose, user, setPostData }) {
+  // if open is false, then this modal should return nothing
   if (!open) return null;
 
+  // state for title, category and body
   const [postTitle, setPostTitle] = useState('');
   const [postCategory, setPostCategory] = useState('');
   const [postBody, setPostBody] = useState('');
 
+  // function to generate random id (source in journal)
   const generatePostId = () => {
     return Math.random().toString().slice(2, 11);
   };
 
+
+  // handles submission of form. Generates random date. Source in journal.
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
