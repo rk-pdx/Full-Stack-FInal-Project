@@ -24,6 +24,11 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
     }
     
     const handleSubmit = async (evt) => {
+        if (currentReply === undefined) {
+            alert('Please enter a comment.');
+            return;
+        }
+
         evt.preventDefault();
 
         let dataToSend = {
@@ -54,6 +59,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                     <button onClick={toggleModal}>Close</button>
                     <h3>{postDate}</h3>
                     <h1>{postTitle}</h1>
+                    <h3>Published in <span>{postCategory}</span></h3>
                     <h3>Author: <span>{postAuthor}</span></h3>
                     <p>{postBody}</p>
 
@@ -71,6 +77,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                                         cols='80'
                                         onChange={(e) => setCurrentReply(e.target.value)}
                                         id='reply'
+                                        placeholder='enter comment here...'
                                         required></textarea>
                                     <br></br>
                                     <button className='submitBtn' onClick={handleSubmit}>
@@ -93,6 +100,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                                         cols='80'
                                         onChange={(e) => setCurrentReply(e.target.value)}
                                         id='reply'
+                                        placeholder='enter comment here...'
                                         required></textarea>
                                     <br></br>
                                     <button className='submitBtn' onClick={handleSubmit}>
