@@ -51,25 +51,29 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
         <div className='secondPostModal'>
             <div className='secondPostModalOverlay'>
                 <div className='secondPostModalContent'>
+                    <button onClick={toggleModal}>Close Post</button>
                     <h1>{postTitle}</h1>
                     <h5>Author: {postAuthor}</h5>
                     <p>{postBody}</p>
 
                     <div className='replies'>
+                        <hr className='commentsSeparator'></hr>
+                        <h2>COMMENTS</h2>
                         {(newRepliesArray.length === 0) ? (
-                            <form>
-                                <label htmlFor='reply'></label>
-                                <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
-                                <button className='submitBtn' onClick={handleSubmit}>
-                                    Submit
-                                </button>
-                            </form>
+                            <div>
+                                {handleSubmit2()}
+                                <form>
+                                    <label htmlFor='reply'></label>
+                                    <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
+                                    <button className='submitBtn' onClick={handleSubmit}>
+                                        Submit
+                                    </button>
+                                </form>
+                            </div>
                         ) : (
                             <div>
-                                <hr className='commentsSeparator'></hr>
-                                <h2>COMMENTS</h2>
                                 <div className='repliesSection'>
-                                    {newRepliesArray.map((reply, index) => <Reply key={index} body={reply['dataToSend']['body']} />)}
+                                    {newRepliesArray.map((reply, index) => <Reply key={index} body={reply['dataToSend']['body']} author={postAuthor}/>)}
                                 </div>
                                 <form>
                                     <label htmlFor='reply'></label>
@@ -82,7 +86,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                         )}
                     </div>
 
-                    <button onClick={toggleModal}>Cancel</button>
+                    
                 </div>
             </div>
         </div>
