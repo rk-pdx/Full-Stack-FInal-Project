@@ -113,12 +113,12 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
             <div className='postStats'>
               <div>
                 <button className='authorBtn' onClick={authorBtn_HandleClick}>
-                  {postAuthor}
+                  Author: {postAuthor}
                 </button>
                 <Popup open={popup} author={author} setPopup={setPopup} />
               </div>
               <button className='repliesBtn' onClick={toggleModal}>
-                    {repliesArray[0]} replies
+                    See replies
               </button>
               <SecondPostModal
                   showSecondPostModal={showSecondPostModal}

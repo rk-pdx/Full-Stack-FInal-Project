@@ -23,14 +23,14 @@ export default function Reply ({body, author}) {
             <div className='authorName'>
                 <hr></hr>
                     
-                    Comment by <span>{author} &ensp;</span>
+                    &ensp;&ensp; Comment by <span>{author} &ensp;</span>
                     <button className='collapseBtn' onClick={collapseBtn_HandleClick}>
                         {returnCollapseKeyword()}
                     </button>
                     
             </div>
             {(showComment === true ? (
-                <p> &nbsp; {body}</p>
+                <p> &ensp;&ensp; {body}</p>
             ) : (
                 null
             ))}

@@ -70,6 +70,7 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                     <p>{postBody}</p>
 
                     <div className='replies'>
+                        <br></br>
                         <hr className='commentsSeparator'></hr>
                         <h2 className='commentsHeader'>{newRepliesArray.length} {returnCommentKeyword()} </h2>
                         {(newRepliesArray.length === 0) ? (
