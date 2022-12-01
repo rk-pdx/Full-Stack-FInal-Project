@@ -51,20 +51,28 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
         <div className='secondPostModal'>
             <div className='secondPostModalOverlay'>
                 <div className='secondPostModalContent'>
-                    <button onClick={toggleModal}>Close Post</button>
+                    <button onClick={toggleModal}>Close</button>
+                    <h3>{postDate}</h3>
                     <h1>{postTitle}</h1>
-                    <h5>Author: {postAuthor}</h5>
+                    <h3>Author: <span>{postAuthor}</span></h3>
                     <p>{postBody}</p>
 
                     <div className='replies'>
                         <hr className='commentsSeparator'></hr>
-                        <h2>COMMENTS</h2>
+                        <h2 className='commentsHeader'>{newRepliesArray.length} COMMENTS </h2>
                         {(newRepliesArray.length === 0) ? (
                             <div>
                                 {handleSubmit2()}
                                 <form>
                                     <label htmlFor='reply'></label>
-                                    <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
+                                    {/* <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/> */}
+                                    <textarea
+                                        rows='5'
+                                        cols='80'
+                                        onChange={(e) => setCurrentReply(e.target.value)}
+                                        id='reply'
+                                        required></textarea>
+                                    <br></br>
                                     <button className='submitBtn' onClick={handleSubmit}>
                                         Submit
                                     </button>
@@ -77,7 +85,16 @@ function SecondPostModal ({showSecondPostModal, toggleModal, postId, postDate, p
                                 </div>
                                 <form>
                                     <label htmlFor='reply'></label>
-                                    <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/>
+                                    {/* <input type='text' onChange={(e) => setCurrentReply(e.target.value)} id='reply' required/> */}
+                                    <hr></hr>
+                                    <h3 className='commentInstructionHeader'>Enter your comment here (logged in as <span className='boldedAuthor'>{postAuthor}</span>):</h3>
+                                    <textarea
+                                        rows='5'
+                                        cols='80'
+                                        onChange={(e) => setCurrentReply(e.target.value)}
+                                        id='reply'
+                                        required></textarea>
+                                    <br></br>
                                     <button className='submitBtn' onClick={handleSubmit}>
                                         Submit
                                     </button>

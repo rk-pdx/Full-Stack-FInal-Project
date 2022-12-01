@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../Reply/Reply.css';
 
 
 export default function Reply ({body, author}) {
@@ -7,10 +8,10 @@ export default function Reply ({body, author}) {
         <div className='reply'>
             <div className='authorName'>
                 <hr></hr>
-                    Comment by {author}
+                    Comment by <span>{author}</span>
             </div>
             <p>{body}</p>
-            <hr></hr>
+            
         </div>
     )
 }
