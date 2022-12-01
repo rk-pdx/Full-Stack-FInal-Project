@@ -7,9 +7,16 @@ import { UNSAFE_DataRouterStateContext } from 'react-router-dom';
 import '../PostCompact/PostCompact.css';
 import SecondPostModal from '../SecondPostModal/SecondPostModal.jsx';
 
+/*
+This component is basically the short (compact) form of the larger post. It contains only some of the
+information about the post, like title, category, author button and replies button. The user can click
+on the author button to get info about the author, etc.
+*/
+
 
 function PostCompact({postId, postDate, postTitle, userId, postCategory, postBody, repliesArray,}) {
 
+  // state for the specific post's author
   const [postAuthor, setPostAuthor] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
   const [author, setAuthor] = useState({
@@ -42,6 +49,7 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
   }, []);
 
 
+  // this is where we populate the post author
   const populatePostAuthor = () => {
     // useEffect(() => {
     //     fetch(`https://localhost:5001/getAuthorNames`).then(
@@ -59,6 +67,7 @@ function PostCompact({postId, postDate, postTitle, userId, postCategory, postBod
   const [hidePostModal, setHidePostModal] = useState(true);
 
 
+  // function to toggle whether the modal is open or not
   const toggleModal = () => {
     // setShowPostModal(true);
     // setHidePostModal(false);

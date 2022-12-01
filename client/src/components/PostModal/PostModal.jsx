@@ -4,6 +4,12 @@ import axios from 'axios';
 import uuid from 'react-uuid';
 import Replies from '../RepliesCollection/Replies';
 
+/*
+This is the full expanded form of the post, and contains all of the information about the post.
+It is a modal that opens up after the user clicks on the compacted post's title or "see replies" button.
+This is a WIP (scrapped) part of the project. Instead of this, we used SecondPostModal.
+*/
+
 function PostModal({
   hide,
   showPostModal,
@@ -16,7 +22,9 @@ function PostModal({
   postBody,
   repliesArray,
 }) {
+  // state for all replies for the specific post
   const [postReplies, setPostReplies] = useState([]);
+  // state for the reply modal to be shown
   const [hideReplyModal, setHideReplyModal] = useState(true);
   const [hidePostModal, setHidePostModal] = useState(hide);
   const [hideReplies, setHideReplies] = useState(true);

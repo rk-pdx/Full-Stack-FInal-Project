@@ -6,8 +6,11 @@ import axios from 'axios';
 import './Dashboard.css';
 import PostPopup from '../popups/PostPopup';
 
+
 function Dashboard({ user, logged }) {
+  // state for all posts
   const [postData, setPostData] = useState('');
+  // state for the instruction to open or close the modal
   const [openModal, setOpenModal] = useState(false);
   const [logIn, setLogIn] = useState(logged);
   const [popup, setPopup] = useState(false);
@@ -67,6 +70,7 @@ function Dashboard({ user, logged }) {
     //   )
     // }, []);
 
+    // mock data that we decided to use for debugging.
     const postData = [
       {
         postId: '182844099',
