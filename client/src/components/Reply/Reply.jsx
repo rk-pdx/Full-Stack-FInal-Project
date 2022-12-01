@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 
-export default function Reply ({body}) {
+export default function Reply ({body, author}) {
     
     return (
         <div className='reply'>
-            {body}
+            <div className='authorName'>
+                <hr></hr>
+                    Comment by {author}
+            </div>
+            <p>{body}</p>
+            <hr></hr>
         </div>
     )
 }
