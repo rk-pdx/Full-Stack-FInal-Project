@@ -19,6 +19,9 @@
 
 .secondPostModalContent {
     position: absolute;
+    height: auto;
+    max-height: -webkit-fill-available;
+    overflow-y: scroll;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
