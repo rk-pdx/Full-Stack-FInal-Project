@@ -6,6 +6,7 @@
 body {
   font-family: 'apple';
   color: #232323;
+  background-color: black;
 }
 .toolbar {
   position: fixed;
@@ -129,6 +130,20 @@ body {
 
 .authorBtn:hover {
   color: white;
+}
+
+.modalBtn {
+  background:none;
+  color: grey;
+  
+}
+
+.modalBtn:hover {
+  color: white;
+}
+.toolbar {
+  margin-left:25px;
+  margin-top:5px;
 }
 
 .repliesBtn {
